@@ -1,0 +1,55 @@
+@import '../styles/variables.scss';
+
+// Logo icon spacing
+.logo-icon {
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+// Brand name uses Poppins and theme color
+.brand-name {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+  color: $color-primary;
+  font-weight: $font-weight-bold;
+}
+
+// Upload button uses theme color and font
+.upload-btn {
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $font-weight-semibold;
+  background: $color-primary;
+  color: #fff;
+  border: none;
+}
+.upload-btn:hover,
+.upload-btn:focus {
+  background: darken($color-primary, 10%);
+  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.15);
+}
+
+// Nav links use theme color and font
+.nav-link {
+  transition: color 0.2s;
+  font-family: 'Open Sans', sans-serif;
+  color: $color-text;
+  font-weight: $font-weight-medium;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: $color-primary;
+}
+
+// Responsive spacing for nav links using standard breakpoints
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .navbar-nav {
+    gap: 0.5rem !important;
+  }
+  .upload-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+} 
