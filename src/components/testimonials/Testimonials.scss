@@ -315,6 +315,10 @@
           outline: none;
         }
 
+        &:before {
+          display: none;
+        }
+
         @media (max-width: 768px) {
           width: 10px;
           height: 10px;

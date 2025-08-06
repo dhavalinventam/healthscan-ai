@@ -11,20 +11,20 @@
 .brand-name {
   font-size: 1.3rem;
   letter-spacing: 0.5px;
-  font-family: 'Poppins', sans-serif;
+  font-family: $font-family-primary;
   color: $color-primary;
   font-weight: $font-weight-bold;
 }
 
 // Button component styling for header
 .nav-item .button {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-family-primary;
 }
 
 // Nav links use theme color and font
 .nav-link {
   transition: color 0.2s;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-family-primary;
   color: $color-text;
   font-weight: $font-weight-medium;
 }

@@ -1,11 +1,82 @@
-// Color theme variables
-$color-primary: #0078D4;
+// Color theme variables - Health-Tech AI Innovation Palette
+$color-primary: #0056D2;
+$color-primary-light: #1D8BFF;
+$color-primary-dark: #0047B3;
 $color-accent: #26A69A;
+$color-accent-light: #4DB6AC;
+$color-success: #10B981;
+$color-warning: #F59E0B;
+$color-error: #EF4444;
 $color-bg: #F9FAFC;
-$color-text: #4B5563; 
+$color-bg-light: #FFFFFF;
+$color-bg-blue: #F0F7FF;
+$color-text: #4B5563;
+$color-text-dark: #1E293B;
+$color-text-light: #6B7280;
+
+// Font family
+$font-family-primary: 'Poppins', sans-serif;
+
+// Gradient definitions
+$gradient-primary: linear-gradient(135deg, #0056D2 0%, #1D8BFF 100%);
+$gradient-accent: linear-gradient(135deg, #26A69A 0%, #4DB6AC 100%);
+$gradient-bg: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
+$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.8) 100%);
+
+// Shadow definitions
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+$shadow-glow: 0 0 20px rgba(0, 86, 210, 0.15);
+$shadow-glow-hover: 0 0 30px rgba(0, 86, 210, 0.25);
+
+// Border radius
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+$border-radius-full: 50%;
+
+// Spacing system
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;
 
 // Font weight variables
+$font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Typography scale
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+$font-size-6xl: 3.75rem;
+
+// Animation durations
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+$transition-slow: 0.5s;
+
+// Z-index scale
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;

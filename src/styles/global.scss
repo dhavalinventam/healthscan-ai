@@ -1,5 +1,16 @@
 @import './variables.scss';
 
+// Google Fonts import - Poppins only
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+// CSS Reset and Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 16px;
@@ -8,47 +19,214 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   height: 100%;
-}
-
-body, p, span, button, input, textarea, select, label, li, a, td, th, div {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: $font-weight-regular;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: $font-weight-bold;
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
   background: $color-bg;
   color: $color-text;
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+// Typography - All elements use Poppins
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  color: $color-text-dark;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
 }
 
-.app-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} 
+p, span, button, input, textarea, select, label, li, a, td, th, div {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+}
 
+// Links
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-normal ease;
+  
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
 
+// Buttons
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: $font-family-primary;
+  transition: all $transition-normal ease;
+}
 
-// Standard media query breakpoints for global use
-// Mobile: 
-@media only screen and (min-width: 320px) and (max-width: 767px) {}
-// Tablet: 
-@media only screen and (min-width: 768px) and (max-width: 991px) {}
-// Small Desktop: 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {}
-// Standard Desktop: 
-@media only screen and (min-width: 1200px) and (max-width: 1440px) {}
-// Large Desktop: 
-@media only screen and (min-width: 1441px) and (max-width: 1660px) {}
+// Form elements
+input, textarea, select {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  
+  @media (max-width: 768px) {
+    padding: 0 $spacing-md;
+  }
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-xs; }
+.p-2 { padding: $spacing-sm; }
+.p-3 { padding: $spacing-md; }
+.p-4 { padding: $spacing-lg; }
+.p-5 { padding: $spacing-xl; }
+
+// Global animation classes
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Global hover effects
+.hover-lift {
+  transition: transform $transition-normal ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.hover-glow {
+  transition: box-shadow $transition-normal ease;
+  
+  &:hover {
+    box-shadow: $shadow-glow;
+  }
+}
+
+// Responsive typography
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: $font-size-4xl; }
+  h2 { font-size: $font-size-3xl; }
+  h3 { font-size: $font-size-2xl; }
+  h4 { font-size: $font-size-xl; }
+  h5 { font-size: $font-size-lg; }
+  h6 { font-size: $font-size-base; }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 13px;
+  }
+  
+  h1 { font-size: $font-size-3xl; }
+  h2 { font-size: $font-size-2xl; }
+  h3 { font-size: $font-size-xl; }
+  h4 { font-size: $font-size-lg; }
+  h5 { font-size: $font-size-base; }
+  h6 { font-size: $font-size-sm; }
+}
+
+// Focus states for accessibility
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// Print styles
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  p, blockquote, ul, ol, dl {
+    orphans: 3;
+    widows: 3;
+  }
+}
