@@ -118,21 +118,21 @@ const WhyChoose = () => {
               <div className="trust-icon">🏆</div>
               <div className="trust-content">
                 <div className="trust-title">Industry Leader</div>
-                <div className="trust-subtitle">Trusted by 100K+ users</div>
+                <div className="trust-subtitle">Trusted by 100K+ healthcare professionals</div>
               </div>
             </div>
             <div className="trust-item">
               <div className="trust-icon">🔬</div>
               <div className="trust-content">
                 <div className="trust-title">Medical Grade</div>
-                <div className="trust-subtitle">FDA-compliant analysis</div>
+                <div className="trust-subtitle">FDA-compliant & HIPAA certified</div>
               </div>
             </div>
             <div className="trust-item">
               <div className="trust-icon">⚡</div>
               <div className="trust-content">
                 <div className="trust-title">Lightning Fast</div>
-                <div className="trust-subtitle">Results in 30 seconds</div>
+                <div className="trust-subtitle">AI analysis in under 30 seconds</div>
               </div>
             </div>
           </div>

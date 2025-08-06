@@ -7,6 +7,7 @@ const Button = ({
   variant = 'fill', 
   size = 'medium', 
   disabled = false, 
+  loading = false,
   onClick, 
   type = 'button',
   className = '',
@@ -17,6 +18,7 @@ const Button = ({
     `button--${variant}`,
     `button--${size}`,
     disabled ? 'button--disabled' : '',
+    loading ? 'button--loading' : '',
     className
   ].filter(Boolean).join(' ');
 
@@ -25,7 +27,7 @@ const Button = ({
       type={type}
       className={buttonClasses}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
       {...props}
     >
       {children}
@@ -35,9 +37,10 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['fill', 'outline']),
+  variant: PropTypes.oneOf(['fill', 'outline', 'ghost', 'gradient']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   disabled: PropTypes.bool,
+  loading: PropTypes.bool,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,

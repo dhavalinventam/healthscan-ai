@@ -198,15 +198,15 @@ const SupportedReports = () => {
           <div className="coverage-stats">
             <div className="stat-item">
               <div className="stat-number">6+</div>
-              <div className="stat-label">Report Types</div>
+              <div className="stat-label">Medical Report Types</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">3</div>
-              <div className="stat-label">Categories</div>
+              <div className="stat-label">Specialized Categories</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">100%</div>
-              <div className="stat-label">AI Coverage</div>
+              <div className="stat-label">AI-Powered Coverage</div>
             </div>
           </div>
         </div>

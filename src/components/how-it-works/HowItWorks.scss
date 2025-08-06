@@ -1002,17 +1002,47 @@
     border-radius: $border-radius-xl;
     font-size: $font-size-lg;
     font-weight: $font-weight-semibold;
+    font-family: $font-family-primary;
     cursor: pointer;
     transition: all $transition-normal ease;
     box-shadow: $shadow-glow;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
 
     &:hover {
       transform: translateY(-2px);
       box-shadow: $shadow-glow-hover;
+      background: $gradient-primary; // Maintain gradient background on hover
+
+      &::before {
+        left: 100%;
+      }
+
+      .button-icon {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: $shadow-md;
+      background: $gradient-primary; // Maintain gradient background on active
     }
 
     .button-text {
       font-weight: $font-weight-semibold;
+      transition: transform $transition-normal ease;
     }
 
     .button-icon {
@@ -1021,14 +1051,11 @@
       transition: transform $transition-normal ease;
     }
 
-    &:hover .button-icon {
-      transform: translateX(2px);
-    }
-
     @media (max-width: 768px) {
-      padding: $spacing-md $spacing-lg;
+      padding: $spacing-sm $spacing-lg;
       font-size: $font-size-base;
       width: 100%;
+      max-width: 280px;
       justify-content: center;
     }
   }
