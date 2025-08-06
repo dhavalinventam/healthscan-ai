@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../../styles/variables.scss';
 
 // Logo icon spacing
 .logo-icon {
@@ -16,19 +16,9 @@
   font-weight: $font-weight-bold;
 }
 
-// Upload button uses theme color and font
-.upload-btn {
-  transition: background 0.2s, box-shadow 0.2s;
+// Button component styling for header
+.nav-item .button {
   font-family: 'Open Sans', sans-serif;
-  font-weight: $font-weight-semibold;
-  background: $color-primary;
-  color: #fff;
-  border: none;
-}
-.upload-btn:hover,
-.upload-btn:focus {
-  background: darken($color-primary, 10%);
-  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.15);
 }
 
 // Nav links use theme color and font
@@ -48,7 +38,7 @@
   .navbar-nav {
     gap: 0.5rem !important;
   }
-  .upload-btn {
+  .nav-item .button {
     width: 100%;
     margin-top: 0.5rem;
   }

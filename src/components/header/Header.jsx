@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../button';
 import './Header.scss';
 
 const Header = () => (
   <nav className="navbar navbar-expand-md bg-white border-bottom py-2" role="navigation" aria-label="Main navigation">
     <div className="container">
-      <a className="navbar-brand d-flex align-items-center gap-2 py-2" href="#home" aria-label="HealthScan AI Home">
+      <Link to="/" className="navbar-brand d-flex align-items-center gap-2 py-2" aria-label="HealthScan AI Home">
         <span className="logo-icon">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <rect width="32" height="32" rx="8" fill="#0078D4"/>
@@ -16,28 +18,32 @@ const Header = () => (
           </svg>
         </span>
         <span className="brand-name">HealthScan AI</span>
-      </a>
+      </Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse w-100" id="mainNavbar">
         <ul className="navbar-nav ms-auto mb-2 mb-md-0 align-items-md-center gap-2 gap-md-3">
           <li className="nav-item">
-            <a className="nav-link" href="#home">Home</a>
+            <Link to="/" className="nav-link">Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#how">How It Works</a>
+            <Link to="/about" className="nav-link">About Us</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#faq">FAQ</a>
+            <Link to="/pricing" className="nav-link">Pricing</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#contact">Contact</a>
+            <Link to="/contact" className="nav-link">Contact</Link>
           </li>
           <li className="nav-item ms-md-3 mt-2 mt-md-0">
-            <button className="btn btn-primary px-4 py-2 rounded-3 fw-semibold upload-btn" type="button" aria-label="Upload Report">
+            <Button 
+              variant="fill" 
+              size="small" 
+              aria-label="Upload Report"
+            >
               Upload Report
-            </button>
+            </Button>
           </li>
         </ul>
       </div>

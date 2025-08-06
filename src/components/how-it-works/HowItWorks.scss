@@ -1,0 +1,341 @@
+@import '../../styles/variables';
+
+.how-it-works {
+  background: white;
+  padding: 5rem 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 3rem 0;
+  }
+}
+
+.how-it-works-content {
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 576px) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: $font-weight-bold;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.75rem;
+  }
+}
+
+.report-card,
+.explanation-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  height: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-color: #e2e8f0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.explanation-card {
+  background: #f8fafc;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: $font-weight-bold;
+  color: #1e293b;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.report-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.875rem;
+  }
+
+  @media (max-width: 576px) {
+    gap: 0.75rem;
+  }
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f1f5f9;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.625rem 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.5rem 0;
+  }
+}
+
+.parameter {
+  font-size: 1rem;
+  font-weight: $font-weight-medium;
+  color: #1e293b;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+  }
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: $font-weight-semibold;
+  text-align: right;
+  min-width: 80px;
+
+  &.normal {
+    color: #28a745;
+  }
+
+  &.elevated {
+    color: #0078D4;
+  }
+
+  &.low {
+    color: #dc3545;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    min-width: 70px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+    min-width: 65px;
+  }
+}
+
+.explanation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 576px) {
+    gap: 1rem;
+  }
+}
+
+.explanation-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text;
+  margin: 0;
+  font-weight: $font-weight-regular;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.normal-range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+
+  @media (max-width: 768px) {
+    padding: 0.625rem 0.875rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.check-icon {
+  color: #28a745;
+  font-weight: $font-weight-bold;
+  font-size: 1.125rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.95rem;
+  }
+}
+
+.range-text {
+  font-size: 0.9rem;
+  color: #28a745;
+  font-weight: $font-weight-medium;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 0.8rem;
+  }
+}
+
+// Responsive grid adjustments
+@media (max-width: 992px) {
+  .how-it-works .row {
+    > div {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works .row {
+    > div {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .how-it-works .row {
+    > div {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Animation for cards
+.report-card,
+.explanation-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.report-card {
+  animation-delay: 0.1s;
+}
+
+.explanation-card {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Disable animations on smaller screens for better performance
+@media (max-width: 768px) {
+  .report-card,
+  .explanation-card {
+    animation: none;
+  }
+}
+
+// Accessibility improvements
+.how-it-works {
+  .report-card:focus-within,
+  .explanation-card:focus-within {
+    outline: 2px solid #0078D4;
+    outline-offset: 2px;
+  }
+}
+
+// Print styles
+@media print {
+  .how-it-works {
+    background: white !important;
+    
+    .report-card,
+    .explanation-card {
+      background: white !important;
+      border: 1px solid #e2e8f0;
+      box-shadow: none;
+    }
+  }
+} 

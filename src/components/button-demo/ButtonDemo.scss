@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.button-demo {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  h2 {
+    color: $color-text;
+    margin-bottom: 32px;
+    text-align: center;
+    font-weight: $font-weight-bold;
+  }
+  
+  &__section {
+    margin-bottom: 40px;
+    
+    h3 {
+      color: $color-text;
+      margin-bottom: 16px;
+      font-weight: $font-weight-semibold;
+      font-size: 18px;
+    }
+  }
+  
+  &__row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .button-demo {
+    padding: 20px;
+    
+    &__row {
+      gap: 12px;
+      justify-content: center;
+    }
+  }
+} 

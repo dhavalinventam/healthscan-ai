@@ -1,0 +1,100 @@
+@import '../../styles/variables.scss';
+
+// Base button styles
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  
+  // Remove default button styles
+  background: none;
+  outline: none;
+  
+  // Focus styles for accessibility
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+  
+  // Disabled state
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Size variants
+  &--small {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  
+  &--medium {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+  
+  &--large {
+    padding: 16px 32px;
+    font-size: 18px;
+    min-height: 52px;
+  }
+  
+  // Fill variant (default)
+  &--fill {
+    background-color: $color-primary;
+    color: white;
+    
+    &:hover:not(.button--disabled) {
+      background-color: darken($color-primary, 10%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+    }
+    
+    &:active:not(.button--disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 120, 212, 0.2);
+    }
+  }
+  
+  // Outline variant
+  &--outline {
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    
+    &:hover:not(.button--disabled) {
+      background-color: $color-primary;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 120, 212, 0.2);
+    }
+    
+    &:active:not(.button--disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 120, 212, 0.1);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .button {
+    &--large {
+      padding: 14px 28px;
+      font-size: 16px;
+      min-height: 48px;
+    }
+  }
+} 

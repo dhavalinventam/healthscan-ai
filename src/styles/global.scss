@@ -7,6 +7,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  height: 100%;
 }
 
 body, p, span, button, input, textarea, select, label, li, a, td, th, div {
@@ -22,6 +23,20 @@ h1, h2, h3, h4, h5, h6 {
 body {
   background: $color-bg;
   color: $color-text;
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 } 
 
 
