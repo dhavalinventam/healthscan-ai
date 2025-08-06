@@ -31,6 +31,7 @@
 .nav-link:hover,
 .nav-link:focus {
   color: $color-primary;
+  outline: none;
 }
 
 // Responsive spacing for nav links using standard breakpoints

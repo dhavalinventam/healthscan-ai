@@ -1,5 +1,4 @@
 import React from 'react';
-import './PageStyles.scss';
 
 const Contact = () => {
   return (
