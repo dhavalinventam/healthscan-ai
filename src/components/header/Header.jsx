@@ -89,19 +89,21 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item ms-md-3 mt-2 mt-md-0">
-              <Button 
-                variant="fill" 
-                size="small" 
-                aria-label="Upload Report"
-                className="upload-btn"
-              >
-                <span className="btn-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 5V19M5 12L12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-                <span className="btn-text">Upload Report</span>
-              </Button>
+              <Link to="/upload">
+                <Button 
+                  variant="fill" 
+                  size="small" 
+                  aria-label="Upload Report"
+                  className="upload-btn"
+                >
+                  <span className="btn-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 5V19M5 12L12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                  <span className="btn-text">Upload Report</span>
+                </Button>
+              </Link>
             </li>
           </ul>
         </div>
