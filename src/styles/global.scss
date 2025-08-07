@@ -79,16 +79,6 @@ img {
   display: block;
 }
 
-// Container
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $spacing-lg;
-  
-  @media (max-width: 768px) {
-    padding: 0 $spacing-md;
-  }
-}
 
 // Utility classes
 .text-center { text-align: center; }
