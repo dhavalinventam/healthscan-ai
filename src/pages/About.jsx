@@ -1,13 +1,14 @@
 import React from 'react';
+import AboutHero from '../components/about-hero';
+import AboutMission from '../components/about-mission';
+import AboutStory from '../components/about-story';
 
 const About = () => {
   return (
     <main className="page-main">
-      <div className="container">
-        <div className="page-header">
-          <h1 className="page-title">About Us</h1>
-        </div>
-      </div>
+      <AboutHero />
+      <AboutMission />
+      <AboutStory />
     </main>
   );
 };

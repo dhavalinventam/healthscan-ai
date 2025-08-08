@@ -1,0 +1,253 @@
+@import '../../styles/variables.scss';
+
+.about-mission {
+  position: relative;
+  padding: $spacing-3xl 0;
+  background: $color-bg-light;
+  overflow: hidden;
+
+  // Animation classes
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all $transition-slow ease;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mission-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  // Mission Header
+  .mission-header {
+    margin-bottom: $spacing-2xl;
+
+    .mission-title {
+      font-size: $font-size-4xl;
+      font-weight: $font-weight-bold;
+      color: $color-text-dark;
+      line-height: 1.2;
+      max-width: 800px;
+      margin: 0 auto;
+      font-style: italic;
+
+      @media (max-width: 768px) {
+        font-size: $font-size-3xl;
+      }
+
+      @media (max-width: 576px) {
+        font-size: $font-size-2xl;
+      }
+    }
+  }
+
+  // Mission Description
+  .mission-description {
+    margin-bottom: $spacing-3xl;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .mission-text {
+      font-size: $font-size-lg;
+      color: $color-text;
+      line-height: 1.7;
+      margin-bottom: $spacing-lg;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
+        font-size: $font-size-base;
+        margin-bottom: $spacing-md;
+      }
+    }
+  }
+
+  // Features Section
+  .mission-features {
+    .mission-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-xl;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-lg;
+      }
+
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+      }
+    }
+
+    .mission-feature-card {
+      padding: $spacing-xl;
+      background: $color-bg-light;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-md;
+      transition: all $transition-normal ease;
+      text-align: center;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+      }
+
+      @media (max-width: 768px) {
+        padding: $spacing-lg;
+      }
+
+      .mission-feature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto $spacing-lg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $gradient-primary;
+        border-radius: $border-radius-full;
+        color: white;
+        transition: all $transition-normal ease;
+
+        svg {
+          width: 40px;
+          height: 40px;
+        }
+
+        @media (max-width: 768px) {
+          width: 60px;
+          height: 60px;
+          margin-bottom: $spacing-md;
+
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      .mission-feature-title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-dark;
+        margin-bottom: $spacing-md;
+        line-height: 1.2;
+
+        @media (max-width: 768px) {
+          font-size: $font-size-lg;
+          margin-bottom: $spacing-sm;
+        }
+      }
+
+      .mission-feature-description {
+        font-size: $font-size-base;
+        color: $color-text-light;
+        line-height: 1.6;
+        margin: 0;
+
+        @media (max-width: 768px) {
+          font-size: $font-size-sm;
+        }
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 991px) {
+    padding: $spacing-2xl 0;
+
+    .mission-header {
+      margin-bottom: $spacing-xl;
+    }
+
+    .mission-description {
+      margin-bottom: $spacing-2xl;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl 0;
+
+    .mission-header {
+      margin-bottom: $spacing-lg;
+    }
+
+    .mission-description {
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: $spacing-lg 0;
+
+    .mission-header {
+      margin-bottom: $spacing-md;
+    }
+
+    .mission-description {
+      margin-bottom: $spacing-lg;
+    }
+  }
+}
+
+// Animation delays for staggered entrance
+.about-mission.animate-in {
+  .mission-title {
+    animation: slideInUp 0.8s ease forwards;
+  }
+
+  .mission-text {
+    animation: slideInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+
+    &:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+  }
+
+  .mission-feature-card {
+    animation: slideInUp 0.8s ease forwards;
+    opacity: 0;
+
+    &:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+  }
+}
+
+// Keyframe animations
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
