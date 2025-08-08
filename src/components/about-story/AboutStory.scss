@@ -2,7 +2,7 @@
 
 .about-story {
   position: relative;
-  padding: $spacing-3xl 0;
+  padding: $spacing-4xl 0;
   background: $color-bg-light;
 
   // entrance
@@ -22,12 +22,13 @@
 
   .story-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: $spacing-2xl;
+    grid-template-columns: 1.2fr 1fr;
+    gap: $spacing-3xl;
     align-items: center;
 
     @media (max-width: 991px) {
       grid-template-columns: 1fr;
+      gap: $spacing-2xl;
     }
   }
 
@@ -38,12 +39,13 @@
       border-radius: $border-radius-xl;
       overflow: hidden;
       box-shadow: $shadow-xl;
+      transform: perspective(1000px) rotateY(-5deg);
 
       &::after {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.03) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%);
         pointer-events: none;
       }
 
@@ -51,6 +53,11 @@
         width: 100%;
         height: auto;
         display: block;
+        transition: transform $transition-normal ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
   }
@@ -58,17 +65,18 @@
   // Content
   .story-content {
     .story-title {
-      font-size: $font-size-4xl;
+      font-size: $font-size-5xl;
       font-weight: $font-weight-extrabold;
       line-height: 1.15;
-      margin-bottom: $spacing-lg;
+      margin-bottom: $spacing-xl;
+      color: $color-text-dark;
 
       @media (max-width: 1200px) {
-        font-size: $font-size-3xl;
+        font-size: $font-size-4xl;
       }
 
       @media (max-width: 576px) {
-        font-size: $font-size-2xl;
+        font-size: $font-size-3xl;
       }
     }
 
@@ -76,28 +84,54 @@
       p {
         font-size: $font-size-lg;
         color: $color-text;
-        margin-bottom: $spacing-md;
+        margin-bottom: $spacing-lg;
+        line-height: 1.7;
+        font-weight: $font-weight-medium;
+
+        @media (max-width: 768px) {
+          font-size: $font-size-base;
+          margin-bottom: $spacing-md;
+        }
       }
     }
 
     .quote-card {
-      margin-top: $spacing-xl;
-      background: $color-bg-light;
-      border-radius: $border-radius-lg;
-      box-shadow: $shadow-md;
-      border: 1px solid rgba(0, 86, 210, 0.08);
-      padding: $spacing-lg;
+      margin-top: $spacing-2xl;
+      background: $color-bg-blue;
+      border-radius: $border-radius-xl;
+      box-shadow: $shadow-lg;
+      border: 1px solid rgba(5, 84, 209, 0.1);
+      padding: $spacing-xl;
+      position: relative;
+      border-left: 4px solid $color-primary;
+
+      &::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: $spacing-lg;
+        font-size: 4rem;
+        color: $color-primary;
+        font-family: serif;
+        line-height: 1;
+      }
 
       .quote-body {
         .quote-text {
-          font-size: $font-size-lg;
+          font-size: $font-size-xl;
           color: $color-text-dark;
           font-style: italic;
+          font-weight: $font-weight-medium;
+          line-height: 1.6;
+          margin-bottom: $spacing-lg;
+
+          @media (max-width: 768px) {
+            font-size: $font-size-lg;
+          }
         }
       }
 
       .quote-footer {
-        margin-top: $spacing-md;
         display: flex;
         align-items: center;
 
@@ -107,8 +141,8 @@
           gap: $spacing-md;
 
           .author-avatar {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             background: $gradient-primary;
             color: white;
@@ -117,15 +151,28 @@
             justify-content: center;
             font-weight: $font-weight-semibold;
             box-shadow: $shadow-glow;
+            font-size: $font-size-lg;
           }
 
           .author-meta {
-            .author-name { font-weight: $font-weight-semibold; color: $color-text-dark; }
-            .author-title { color: $color-text-light; font-size: $font-size-sm; }
+            .author-name { 
+              font-weight: $font-weight-semibold; 
+              color: $color-text-dark; 
+              font-size: $font-size-lg;
+            }
+            .author-title { 
+              color: $color-text-light; 
+              font-size: $font-size-sm; 
+              margin-top: 2px;
+            }
           }
         }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-3xl 0;
   }
 }
 

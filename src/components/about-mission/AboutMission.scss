@@ -2,9 +2,8 @@
 
 .about-mission {
   position: relative;
-  padding: $spacing-3xl 0;
-  background: $color-bg-light;
-  overflow: hidden;
+  padding: $spacing-4xl 0;
+  background: $color-bg-blue;
 
   // Animation classes
   opacity: 0;
@@ -29,50 +28,51 @@
 
   // Mission Header
   .mission-header {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
 
     .mission-title {
-      font-size: $font-size-4xl;
-      font-weight: $font-weight-bold;
+      font-size: $font-size-5xl;
+      font-weight: $font-weight-extrabold;
       color: $color-text-dark;
       line-height: 1.2;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       font-style: italic;
 
       @media (max-width: 768px) {
-        font-size: $font-size-3xl;
+        font-size: $font-size-4xl;
       }
 
       @media (max-width: 576px) {
-        font-size: $font-size-2xl;
+        font-size: $font-size-3xl;
       }
     }
   }
 
   // Mission Description
   .mission-description {
-    margin-bottom: $spacing-3xl;
-    max-width: 900px;
+    margin-bottom: $spacing-4xl;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 
     .mission-text {
-      font-size: $font-size-lg;
+      font-size: $font-size-xl;
       color: $color-text;
-      line-height: 1.7;
-      margin-bottom: $spacing-lg;
-      max-width: 800px;
+      line-height: 1.8;
+      margin-bottom: $spacing-xl;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
+      font-weight: $font-weight-medium;
 
       &:last-child {
         margin-bottom: 0;
       }
 
       @media (max-width: 768px) {
-        font-size: $font-size-base;
-        margin-bottom: $spacing-md;
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-lg;
       }
     }
   }
@@ -82,13 +82,13 @@
     .mission-features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-xl;
-      max-width: 1000px;
+      gap: $spacing-2xl;
+      max-width: 1100px;
       margin: 0 auto;
 
       @media (max-width: 991px) {
         grid-template-columns: repeat(2, 1fr);
-        gap: $spacing-lg;
+        gap: $spacing-xl;
       }
 
       @media (max-width: 576px) {
@@ -98,26 +98,46 @@
     }
 
     .mission-feature-card {
-      padding: $spacing-xl;
+      padding: $spacing-2xl;
       background: $color-bg-light;
-      border-radius: $border-radius-lg;
-      box-shadow: $shadow-md;
+      border-radius: $border-radius-xl;
+      box-shadow: $shadow-lg;
       transition: all $transition-normal ease;
       text-align: center;
+      border: 1px solid rgba(5, 84, 209, 0.08);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: $gradient-primary;
+        transform: scaleX(0);
+        transition: transform $transition-normal ease;
+      }
 
       &:hover {
-        transform: translateY(-4px);
-        box-shadow: $shadow-lg;
+        transform: translateY(-8px);
+        box-shadow: $shadow-xl;
+        border-color: rgba(5, 84, 209, 0.15);
+
+        &::before {
+          transform: scaleX(1);
+        }
       }
 
       @media (max-width: 768px) {
-        padding: $spacing-lg;
+        padding: $spacing-xl;
       }
 
       .mission-feature-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto $spacing-lg;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto $spacing-xl;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -125,33 +145,34 @@
         border-radius: $border-radius-full;
         color: white;
         transition: all $transition-normal ease;
+        box-shadow: $shadow-glow;
 
         svg {
-          width: 40px;
-          height: 40px;
+          width: 48px;
+          height: 48px;
         }
 
         @media (max-width: 768px) {
-          width: 60px;
-          height: 60px;
-          margin-bottom: $spacing-md;
+          width: 80px;
+          height: 80px;
+          margin-bottom: $spacing-lg;
 
           svg {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
           }
         }
       }
 
       .mission-feature-title {
-        font-size: $font-size-xl;
+        font-size: $font-size-2xl;
         font-weight: $font-weight-bold;
         color: $color-text-dark;
         margin-bottom: $spacing-md;
         line-height: 1.2;
 
         @media (max-width: 768px) {
-          font-size: $font-size-lg;
+          font-size: $font-size-xl;
           margin-bottom: $spacing-sm;
         }
       }
@@ -161,6 +182,7 @@
         color: $color-text-light;
         line-height: 1.6;
         margin: 0;
+        font-weight: $font-weight-medium;
 
         @media (max-width: 768px) {
           font-size: $font-size-sm;
@@ -171,6 +193,18 @@
 
   // Responsive adjustments
   @media (max-width: 991px) {
+    padding: $spacing-3xl 0;
+
+    .mission-header {
+      margin-bottom: $spacing-2xl;
+    }
+
+    .mission-description {
+      margin-bottom: $spacing-3xl;
+    }
+  }
+
+  @media (max-width: 768px) {
     padding: $spacing-2xl 0;
 
     .mission-header {
@@ -182,7 +216,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     padding: $spacing-xl 0;
 
     .mission-header {
@@ -191,18 +225,6 @@
 
     .mission-description {
       margin-bottom: $spacing-xl;
-    }
-  }
-
-  @media (max-width: 576px) {
-    padding: $spacing-lg 0;
-
-    .mission-header {
-      margin-bottom: $spacing-md;
-    }
-
-    .mission-description {
-      margin-bottom: $spacing-lg;
     }
   }
 }

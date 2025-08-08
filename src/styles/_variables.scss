@@ -1,35 +1,37 @@
-// Color theme variables - Health-Tech AI Innovation Palette
-$color-primary: #0056D2;
-$color-primary-light: #1D8BFF;
+// Color theme variables - Modern Healthcare AI Blue Theme
+$color-primary: #0054D1;
+$color-primary-light: #1E8BFF;
 $color-primary-dark: #0047B3;
 $color-accent: #26A69A;
 $color-accent-light: #4DB6AC;
 $color-success: #10B981;
 $color-warning: #F59E0B;
 $color-error: #EF4444;
-$color-bg: #F9FAFC;
+$color-bg: #F5F9FF;
 $color-bg-light: #FFFFFF;
-$color-bg-blue: #F0F7FF;
+$color-bg-blue: #F5F9FF;
 $color-text: #4B5563;
-$color-text-dark: #1E293B;
+$color-text-dark: #0E1E3B;
 $color-text-light: #6B7280;
 
 // Font family
 $font-family-primary: 'Poppins', sans-serif;
+$font-family-secondary: 'Open Sans', sans-serif;
 
 // Gradient definitions
-$gradient-primary: linear-gradient(135deg, #0056D2 0%, #1D8BFF 100%);
+$gradient-primary: linear-gradient(135deg, #0054D1 0%, #1E8BFF 100%);
 $gradient-accent: linear-gradient(135deg, #26A69A 0%, #4DB6AC 100%);
-$gradient-bg: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
-$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.8) 100%);
+$gradient-bg: linear-gradient(135deg, #F5F9FF 0%, #FFFFFF 100%);
+$gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 249, 255, 0.8) 100%);
+$gradient-hero: linear-gradient(135deg, #0054D1 0%, #1E8BFF 100%);
 
 // Shadow definitions
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
 $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 $shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
-$shadow-glow: 0 0 20px rgba(0, 86, 210, 0.15);
-$shadow-glow-hover: 0 0 30px rgba(0, 86, 210, 0.25);
+$shadow-glow: 0 0 20px rgba(5, 84, 209, 0.15);
+$shadow-glow-hover: 0 0 30px rgba(5, 84, 209, 0.25);
 
 // Border radius
 $border-radius-sm: 8px;
@@ -46,6 +48,7 @@ $spacing-lg: 2rem;
 $spacing-xl: 3rem;
 $spacing-2xl: 4rem;
 $spacing-3xl: 6rem;
+$spacing-4xl: 8rem;
 
 // Font weight variables
 $font-weight-light: 300;

@@ -2,24 +2,25 @@
 
 .about-hero {
   position: relative;
-  padding: $spacing-3xl 0;
-  background: $gradient-bg;
+  padding: $spacing-4xl 0;
+  background: $gradient-hero;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
 
-  // Background decorative elements
+  // Enhanced background decorative elements
   &::before {
     content: '';
     position: absolute;
     top: -50%;
     right: -20%;
-    width: 60%;
+    width: 70%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 86, 210, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 1;
+    animation: float 8s ease-in-out infinite;
   }
 
   &::after {
@@ -27,11 +28,12 @@
     position: absolute;
     bottom: -30%;
     left: -10%;
-    width: 40%;
+    width: 50%;
     height: 160%;
-    background: radial-gradient(circle, rgba(38, 166, 154, 0.03) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 1;
+    animation: float 6s ease-in-out infinite reverse;
   }
 
   // Animation classes
@@ -55,42 +57,44 @@
 
   // Left Section - Content
   .about-hero-content {
-    padding-right: $spacing-xl;
+    padding-right: $spacing-2xl;
 
     @media (max-width: 991px) {
       padding-right: 0;
       text-align: center;
-      margin-bottom: $spacing-xl;
+      margin-bottom: $spacing-2xl;
     }
 
     .about-hero-title {
-      font-size: $font-size-5xl;
-      font-weight: $font-weight-bold;
-      color: $color-text-dark;
+      font-size: $font-size-6xl;
+      font-weight: $font-weight-extrabold;
+      color: white;
       line-height: 1.1;
-      margin-bottom: $spacing-lg;
-      max-width: 600px;
+      margin-bottom: $spacing-xl;
+      max-width: 700px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       @media (max-width: 1200px) {
-        font-size: $font-size-4xl;
+        font-size: $font-size-5xl;
       }
 
       @media (max-width: 768px) {
-        font-size: $font-size-3xl;
-        margin-bottom: $spacing-md;
+        font-size: $font-size-4xl;
+        margin-bottom: $spacing-lg;
       }
 
       @media (max-width: 576px) {
-        font-size: $font-size-2xl;
+        font-size: $font-size-3xl;
       }
     }
 
     .about-hero-description {
-      font-size: $font-size-lg;
-      color: $color-text-light;
-      line-height: 1.6;
-      margin-bottom: $spacing-xl;
-      max-width: 500px;
+      font-size: $font-size-xl;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: $spacing-2xl;
+      max-width: 600px;
+      font-weight: $font-weight-medium;
 
       @media (max-width: 991px) {
         max-width: 100%;
@@ -99,33 +103,36 @@
       }
 
       @media (max-width: 768px) {
-        font-size: $font-size-base;
-        margin-bottom: $spacing-lg;
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-xl;
       }
     }
 
     .about-hero-cta {
       .about-hero-btn {
-        min-width: 160px;
-        height: 56px;
+        min-width: 180px;
+        height: 60px;
         font-size: $font-size-lg;
         font-weight: $font-weight-semibold;
-        border-radius: $border-radius-md;
-        box-shadow: $shadow-md;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow-lg;
         transition: all $transition-normal ease;
+        background: white;
+        color: $color-primary;
 
         &:hover {
-          transform: translateY(-2px);
-          box-shadow: $shadow-glow-hover;
+          transform: translateY(-3px);
+          box-shadow: $shadow-xl;
+          background: rgba(255, 255, 255, 0.95);
         }
 
         &:active {
-          transform: translateY(0);
+          transform: translateY(-1px);
         }
 
         @media (max-width: 768px) {
-          min-width: 140px;
-          height: 48px;
+          min-width: 160px;
+          height: 52px;
           font-size: $font-size-base;
         }
       }
@@ -141,27 +148,29 @@
     .about-hero-image-wrapper {
       position: relative;
       width: 100%;
-      max-width: 500px;
+      max-width: 550px;
 
       @media (max-width: 991px) {
-        max-width: 400px;
+        max-width: 450px;
       }
 
       @media (max-width: 768px) {
-        max-width: 350px;
+        max-width: 400px;
       }
 
       .about-hero-image {
         width: 100%;
         height: auto;
-        border-radius: $border-radius-lg;
+        border-radius: $border-radius-xl;
         box-shadow: $shadow-xl;
-        border: 4px solid $color-bg-light;
+        border: 6px solid rgba(255, 255, 255, 0.2);
         transition: all $transition-normal ease;
+        backdrop-filter: blur(10px);
 
         &:hover {
           transform: scale(1.02);
           box-shadow: $shadow-glow-hover;
+          border-color: rgba(255, 255, 255, 0.3);
         }
       }
     }
@@ -169,7 +178,7 @@
 
   // Responsive adjustments
   @media (max-width: 991px) {
-    padding: $spacing-2xl 0;
+    padding: $spacing-3xl 0;
     min-height: auto;
     text-align: center;
 
@@ -179,23 +188,23 @@
   }
 
   @media (max-width: 768px) {
+    padding: $spacing-2xl 0;
+
+    .about-hero-content {
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  @media (max-width: 576px) {
     padding: $spacing-xl 0;
 
     .about-hero-content {
       margin-bottom: $spacing-lg;
     }
-  }
-
-  @media (max-width: 576px) {
-    padding: $spacing-lg 0;
-
-    .about-hero-content {
-      margin-bottom: $spacing-md;
-    }
 
     .about-hero-image-container {
       .about-hero-image-wrapper {
-        max-width: 300px;
+        max-width: 350px;
       }
     }
   }
@@ -243,5 +252,14 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }

@@ -1,7 +1,7 @@
 @import './variables.scss';
 
-// Google Fonts import - Poppins only
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+// Google Fonts import - Poppins and Open Sans
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 // CSS Reset and Base Styles
 *,
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: $font-family-primary;
+  font-family: $font-family-secondary;
   font-weight: $font-weight-regular;
   background: $color-bg;
   color: $color-text;
@@ -32,7 +32,7 @@ body {
   overflow-x: hidden;
 }
 
-// Typography - All elements use Poppins
+// Typography - Poppins for headings, Open Sans for body
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-primary;
   font-weight: $font-weight-bold;
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, span, button, input, textarea, select, label, li, a, td, th, div {
-  font-family: $font-family-primary;
+  font-family: $font-family-secondary;
   font-weight: $font-weight-regular;
 }
 
@@ -62,13 +62,13 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  font-family: $font-family-primary;
+  font-family: $font-family-secondary;
   transition: all $transition-normal ease;
 }
 
 // Form elements
 input, textarea, select {
-  font-family: $font-family-primary;
+  font-family: $font-family-secondary;
   font-weight: $font-weight-regular;
 }
 
@@ -78,7 +78,6 @@ img {
   height: auto;
   display: block;
 }
-
 
 // Utility classes
 .text-center { text-align: center; }

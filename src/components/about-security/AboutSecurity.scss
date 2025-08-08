@@ -1,0 +1,174 @@
+@import '../../styles/variables.scss';
+
+.about-security {
+  position: relative;
+  padding: $spacing-4xl 0;
+  background: $color-bg-light;
+
+  // entrance
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all $transition-slow ease;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+
+    .section-title {
+      font-size: $font-size-5xl;
+      font-weight: $font-weight-extrabold;
+      color: $color-text-dark;
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: $font-size-4xl;
+      }
+
+      @media (max-width: 576px) {
+        font-size: $font-size-3xl;
+      }
+    }
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-2xl;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+
+  .security-card {
+    background: $color-bg-blue;
+    border-radius: $border-radius-xl;
+    padding: $spacing-2xl;
+    text-align: center;
+    border: 1px solid rgba(5, 84, 209, 0.1);
+    transition: all $transition-normal ease;
+    animation: securityCardIn 0.6s ease forwards;
+    opacity: 0;
+    animation-delay: calc(var(--card-index) * 150ms);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: $gradient-primary;
+      transform: scaleX(0);
+      transition: transform $transition-normal ease;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: $shadow-xl;
+      border-color: rgba(5, 84, 209, 0.2);
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    .security-icon-wrapper {
+      margin-bottom: $spacing-xl;
+
+      .security-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        background: $color-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: $shadow-glow;
+        transition: all $transition-normal ease;
+
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: $shadow-glow-hover;
+        }
+
+        @media (max-width: 768px) {
+          width: 70px;
+          height: 70px;
+
+          svg {
+            width: 28px;
+            height: 28px;
+          }
+        }
+      }
+    }
+
+    .security-title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $color-text-dark;
+      margin-bottom: $spacing-md;
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: $font-size-lg;
+      }
+    }
+
+    .security-description {
+      font-size: $font-size-base;
+      color: $color-text-light;
+      line-height: 1.6;
+      margin: 0;
+      font-weight: $font-weight-medium;
+
+      @media (max-width: 768px) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
+@keyframes securityCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-security {
+    padding: $spacing-3xl 0;
+
+    .section-header {
+      margin-bottom: $spacing-3xl;
+    }
+  }
+}
