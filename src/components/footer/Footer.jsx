@@ -112,7 +112,7 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-md-6">
               <p className="copyright">
-                © 2024 HealthScan AI. All rights reserved.
+                © 2025 HealthScan AI. All rights reserved.
               </p>
             </div>
             <div className="col-md-6">
