@@ -81,6 +81,15 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link 
+                to="/dashboard" 
+                className={`nav-link ${isActiveLink('/dashboard') ? 'active' : ''}`}
+                aria-current={isActiveLink('/dashboard') ? 'page' : undefined}
+              >
+                Dashboard
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link 
                 to="/contact" 
                 className={`nav-link ${isActiveLink('/contact') ? 'active' : ''}`}
                 aria-current={isActiveLink('/contact') ? 'page' : undefined}
