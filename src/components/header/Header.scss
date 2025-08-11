@@ -128,9 +128,17 @@
   border-radius: $border-radius-lg;
   transition: all $transition-normal ease;
 
-  &:hover {
-    background: rgba(0, 86, 210, 0.05);
-    transform: translateY(-1px);
+  // &:hover {
+  //   background: rgba(0, 86, 210, 0.05);
+  //   transform: translateY(-1px);
+  // }
+
+  &:focus {
+    outline: none !important;
+  }
+
+  .brand-name::after {
+    display: none;
   }
 
   // Tablet responsive adjustments
