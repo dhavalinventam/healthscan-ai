@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from 'react';
+import { getUser } from '../utils/auth';
 import './Dashboard.scss';
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
+
+  const user = getUser();
 
   const reportRows = useMemo(
     () => [
@@ -25,7 +28,7 @@ const Dashboard = () => {
         {/* Header / Greeting */}
         <section className="dashboard-header">
           <div className="greeting">
-            <h1 className="title">Hi, Dhaval</h1>
+            <h1 className="title">Hi, {user?.name || 'User'}</h1>
             <p className="subtitle">
               Here’s your health report history
               <span className="muted"> · Your last report was analyzed 3 days ago</span>

@@ -53,7 +53,7 @@ const Hero = () => {
               </p>
               
               <div className="hero-cta">
-                <Button
+                {/* <Button
                   variant="fill"
                   size="large"
                   className="hero-btn primary-btn"
@@ -65,7 +65,7 @@ const Hero = () => {
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
-                </Button>
+                </Button> */}
                 
                 <Button
                   variant="outline"
@@ -78,7 +78,7 @@ const Hero = () => {
                       <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
                     </svg>
                   </span>
-                  <span className="btn-text">Watch Demo</span>
+                  <span className="btn-text">Try It Free</span>
                 </Button>
               </div>
               

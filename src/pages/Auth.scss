@@ -62,6 +62,36 @@
   justify-content: center;
 }
 
+// Tabs / Toggle between Login and Signup
+.auth-tabs {
+  display: inline-flex;
+  align-self: flex-start;
+  background: rgba(14, 30, 59, 0.04);
+  border: 1px solid rgba(14, 30, 59, 0.08);
+  padding: 6px;
+  border-radius: $border-radius-lg;
+  margin-bottom: $spacing-lg;
+  box-shadow: $shadow-sm;
+
+  .tab {
+    position: relative;
+    background: transparent;
+    border-radius: $border-radius-md;
+    padding: 10px 16px;
+    color: $color-text;
+    font-weight: $font-weight-medium;
+    transition: background $transition-normal ease, color $transition-normal ease, transform $transition-fast ease;
+
+    &:hover { transform: translateY(-1px); }
+
+    &.active {
+      background: $color-bg-light;
+      color: $color-text-dark;
+      box-shadow: $shadow-sm;
+    }
+  }
+}
+
 .form-header {
   margin-bottom: $spacing-lg;
 }
@@ -89,30 +119,50 @@
     color: $color-text-dark;
   }
 
-  input {
-    width: 100%;
-    padding: 0.9rem 1rem;
+  .input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
     background: #fff;
     border: 1px solid rgba(14, 30, 59, 0.08);
     border-radius: $border-radius-sm;
     box-shadow: $shadow-sm;
     transition: transform $transition-fast ease, box-shadow $transition-normal ease, border-color $transition-normal ease;
 
-    &::placeholder {
-      color: $color-text-light;
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-primary;
+      padding-left: 0.75rem;
     }
 
-    &:hover {
-      border-color: rgba(14, 30, 59, 0.16);
-      box-shadow: $shadow-md;
+    input {
+      width: 100%;
+      padding: 0.9rem 1rem 0.9rem 0.75rem;
+      background: transparent;
+      border: none;
+      border-radius: inherit;
+
+      &::placeholder { color: $color-text-light; }
+      &:focus { outline: none; }
     }
 
-    &:focus {
-      transform: scale(1.01);
-      border-color: $color-primary;
-      box-shadow: 0 0 0 4px rgba(0, 84, 209, 0.08), $shadow-md;
+    &:hover { border-color: rgba(14, 30, 59, 0.16); box-shadow: $shadow-md; }
+    &:focus-within { transform: scale(1.01); border-color: $color-primary; box-shadow: 0 0 0 4px rgba(0, 84, 209, 0.08), $shadow-md; }
+
+    &.has-error {
+      border-color: rgba($color-error, 0.6);
+      box-shadow: 0 0 0 4px rgba($color-error, 0.08), $shadow-sm;
+
+      .icon { color: $color-error; }
     }
   }
+}
+
+.error-text {
+  font-size: $font-size-xs;
+  color: $color-error;
 }
 
 .meta-row {
@@ -140,6 +190,12 @@
     transform: translateY(0);
     filter: brightness(0.98);
   }
+
+  &:disabled {
+    filter: grayscale(0.2) brightness(0.96);
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
 }
 
 .toggle-text {
@@ -160,6 +216,30 @@
   display: grid;
   gap: $spacing-md;
   grid-template-columns: 1fr 1fr;
+}
+
+// Success alert for signup
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  padding: 10px 12px;
+  border-radius: $border-radius-md;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #F7FBFF;
+  margin-bottom: $spacing-md;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $color-success;
+    margin-right: 4px;
+  }
+  .close { background: transparent; color: $color-text; padding: 0 4px; }
+
+  &.success { border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
 }
 
 @media (max-width: 960px) {

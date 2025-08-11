@@ -350,6 +350,62 @@
   }
 }
 
+// User avatar and dropdown
+.user-actions { position: relative; }
+.avatar-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #E8F1FF;
+  color: $color-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: $font-weight-semibold;
+}
+.avatar.small { width: 28px; height: 28px; font-size: 12px; }
+.initials { letter-spacing: 0.5px; }
+.user-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  width: 240px;
+  background: $color-bg-light;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px;
+  z-index: $z-dropdown;
+}
+.user-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 6px 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 6px;
+}
+.user-meta .name { font-weight: $font-weight-semibold; color: $color-text-dark; }
+.user-meta .email { font-size: $font-size-xs; color: $color-text-light; }
+.menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: $color-text;
+  text-decoration: none;
+  font-size: $font-size-sm;
+}
+.menu-item:hover { background: #F5F9FF; }
+
 // Enhanced nav items
 .nav-item {
   position: relative;

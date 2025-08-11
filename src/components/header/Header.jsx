@@ -1,13 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { clearAuth, getUser, isAuthenticated } from '../../utils/auth';
 import Button from '../button';
 import './Header.scss';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const authed = isAuthenticated();
+  const user = authed ? getUser() : null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +26,34 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleDocClick = (e) => {
+      if (!menuRef.current) return;
+      if (!menuRef.current.contains(e.target)) setMenuOpen(false);
+    };
+    document.addEventListener('click', handleDocClick);
+    return () => document.removeEventListener('click', handleDocClick);
+  }, []);
+
   const isActiveLink = (path) => {
     return location.pathname === path;
   };
 
+  const initials = (user?.name || 'User')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((n) => n[0]?.toUpperCase())
+    .join('');
+
+  const onLogout = () => {
+    clearAuth();
+    navigate('/login', { replace: true });
+  };
+
   return (
     <nav className={`navbar navbar-expand-md ${isScrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
-      <div className="container">
+      <div className="container-fluid">
         <Link to="/" className="navbar-brand d-flex align-items-center gap-2 py-2" aria-label="HealthScan AI Home">
           <span className="logo-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -88,15 +116,6 @@ const Header = () => {
                 Dashboard
               </Link>
             </li>
-            <li className="nav-item">
-              <Link 
-                to="/contact" 
-                className={`nav-link ${isActiveLink('/contact') ? 'active' : ''}`}
-                aria-current={isActiveLink('/contact') ? 'page' : undefined}
-              >
-                Contact
-              </Link>
-            </li>
             <li className="nav-item ms-md-3 mt-2 mt-md-0">
               <Link to="/upload">
                 <Button 
@@ -114,6 +133,41 @@ const Header = () => {
                 </Button>
               </Link>
             </li>
+
+            {!authed ? (
+              <li className="nav-item ms-md-3 mt-2 mt-md-0">
+                <Link to="/login" className={`nav-link ${isActiveLink('/login') ? 'active' : ''}`}>
+                  Login
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item ms-md-3 mt-2 mt-md-0 user-actions" ref={menuRef}>
+                <button
+                  type="button"
+                  className="avatar-btn"
+                  aria-haspopup="menu"
+                  aria-expanded={menuOpen}
+                  onClick={() => setMenuOpen((v) => !v)}
+                >
+                  <span className="avatar" aria-label={`${user?.name || 'User'} avatar`}>
+                    <span className="initials">{initials}</span>
+                  </span>
+                </button>
+                {menuOpen && (
+                  <div className="user-menu" role="menu">
+                    <div className="user-menu-header">
+                      <div className="avatar small"><span className="initials">{initials}</span></div>
+                      <div className="user-meta">
+                        <div className="name">{user?.name || 'User'}</div>
+                        <div className="email">{user?.email}</div>
+                      </div>
+                    </div>
+                    <Link to="/profile" className="menu-item" role="menuitem" onClick={() => setMenuOpen(false)}>Profile</Link>
+                    <button className="menu-item" role="menuitem" onClick={onLogout}>Logout</button>
+                  </div>
+                )}
+              </li>
+            )}
           </ul>
         </div>
       </div>
