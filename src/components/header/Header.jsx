@@ -136,8 +136,15 @@ const Header = () => {
 
             {!authed ? (
               <li className="nav-item ms-md-3 mt-2 mt-md-0">
-                <Link to="/login" className={`nav-link ${isActiveLink('/login') ? 'active' : ''}`}>
-                  Login
+                <Link to="/login">
+                  <Button
+                    variant="outline"
+                    size="small"
+                    aria-label="Login"
+                    className="login-btn"
+                  >
+                    Login
+                  </Button>
                 </Link>
               </li>
             ) : (

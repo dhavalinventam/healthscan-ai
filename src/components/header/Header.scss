@@ -295,6 +295,20 @@
   }
 }
 
+// Highlighted login button style tweak
+.login-btn.button--outline {
+  border-width: 2px;
+  color: $color-primary;
+  border-color: $color-primary;
+  background: rgba(0, 86, 210, 0.06);
+}
+.login-btn.button--outline:hover,
+.login-btn.button--outline:focus-visible {
+  color: #fff !important;
+  border-color: $color-primary-dark !important;
+  background: $gradient-primary !important;
+}
+
 // Enhanced navbar toggler
 .navbar-toggler {
   border: none;
@@ -322,6 +336,13 @@
   // Tablet responsive adjustments
   @media (min-width: 768px) and (max-width: 1199px) {
     justify-content: flex-end;
+  }
+}
+
+// Desktop dropdown hover support for menu usability
+@media (min-width: 992px) {
+  .user-actions:hover .user-menu {
+    display: block;
   }
 }
 
