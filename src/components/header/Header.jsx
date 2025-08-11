@@ -53,7 +53,8 @@ const Header = () => {
 
   return (
     <nav className={`navbar navbar-expand-md ${isScrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
-      <div className="container-fluid">
+      <div className="container-fluid d-flex align-items-center">
+        {/* Left: Brand/Logo */}
         <Link to="/" className="navbar-brand d-flex align-items-center gap-2 py-2" aria-label="HealthScan AI Home">
           <span className="logo-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -65,21 +66,23 @@ const Header = () => {
           </span>
           <span className="brand-name">HealthScan AI</span>
         </Link>
-        
-        <button 
-          className="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#mainNavbar" 
-          aria-controls="mainNavbar" 
-          aria-expanded="false" 
+
+        {/* Mobile Toggler */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        
-        <div className="collapse navbar-collapse w-100" id="mainNavbar">
-          <ul className="navbar-nav ms-auto mb-2 mb-md-0 align-items-md-center">
+
+        {/* Center: Main navigation */}
+        <div className="collapse navbar-collapse" id="mainNavbar">
+          <ul className="navbar-nav mb-2 mb-md-0 align-items-md-center">
             <li className="nav-item">
               <Link 
                 to="/" 
@@ -133,49 +136,50 @@ const Header = () => {
                 </Button>
               </Link>
             </li>
-
-            {!authed ? (
-              <li className="nav-item ms-md-3 mt-2 mt-md-0">
-                <Link to="/login">
-                  <Button
-                    variant="outline"
-                    size="small"
-                    aria-label="Login"
-                    className="login-btn"
-                  >
-                    Login
-                  </Button>
-                </Link>
-              </li>
-            ) : (
-              <li className="nav-item ms-md-3 mt-2 mt-md-0 user-actions" ref={menuRef}>
-                <button
-                  type="button"
-                  className="avatar-btn"
-                  aria-haspopup="menu"
-                  aria-expanded={menuOpen}
-                  onClick={() => setMenuOpen((v) => !v)}
-                >
-                  <span className="avatar" aria-label={`${user?.name || 'User'} avatar`}>
-                    <span className="initials">{initials}</span>
-                  </span>
-                </button>
-                {menuOpen && (
-                  <div className="user-menu" role="menu">
-                    <div className="user-menu-header">
-                      <div className="avatar small"><span className="initials">{initials}</span></div>
-                      <div className="user-meta">
-                        <div className="name">{user?.name || 'User'}</div>
-                        <div className="email">{user?.email}</div>
-                      </div>
-                    </div>
-                    <Link to="/profile" className="menu-item" role="menuitem" onClick={() => setMenuOpen(false)}>Profile</Link>
-                    <button className="menu-item" role="menuitem" onClick={onLogout}>Logout</button>
-                  </div>
-                )}
-              </li>
-            )}
           </ul>
+        </div>
+
+        {/* Right: Auth/Login/User */}
+        <div className="auth-actions d-flex align-items-center ms-auto">
+          {!authed ? (
+            <Link to="/login">
+              <Button
+                variant="outline"
+                size="small"
+                aria-label="Login"
+                className="login-btn"
+              >
+                Login
+              </Button>
+            </Link>
+          ) : (
+            <div className="user-actions" ref={menuRef}>
+              <button
+                type="button"
+                className="avatar-btn"
+                aria-haspopup="menu"
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((v) => !v)}
+              >
+                <span className="avatar" aria-label={`${user?.name || 'User'} avatar`}>
+                  <span className="initials">{initials}</span>
+                </span>
+              </button>
+              {menuOpen && (
+                <div className="user-menu" role="menu">
+                  <div className="user-menu-header">
+                    <div className="avatar small"><span className="initials">{initials}</span></div>
+                    <div className="user-meta">
+                      <div className="name">{user?.name || 'User'}</div>
+                      <div className="email">{user?.email}</div>
+                    </div>
+                  </div>
+                  <Link to="/profile" className="menu-item" role="menuitem" onClick={() => setMenuOpen(false)}>Profile</Link>
+                  <button className="menu-item" role="menuitem" onClick={onLogout}>Logout</button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </nav>
