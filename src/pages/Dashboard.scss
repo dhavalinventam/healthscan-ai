@@ -37,11 +37,17 @@
       grid-template-columns: 48px 1fr;
       gap: $spacing-sm;
       align-items: center;
-      background: $color-bg-light;
-      border-radius: $border-radius-lg;
+      background: $gradient-card;
+      border-radius: $border-radius-md;
       padding: $spacing-md;
       border: 1px solid rgba(0, 86, 210, 0.1);
       box-shadow: $shadow-sm;
+      transition: transform $transition-normal ease, box-shadow $transition-normal ease;
+
+      &:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: $shadow-md;
+      }
 
       .icon {
         width: 48px;
@@ -73,8 +79,8 @@
   }
 
   .dashboard-section {
-    background: $color-bg-light;
-    border-radius: $border-radius-lg;
+    background: $gradient-card;
+    border-radius: $border-radius-md;
     padding: $spacing-md;
     border: 1px solid rgba(0, 86, 210, 0.1);
     box-shadow: $shadow-sm;
@@ -88,8 +94,10 @@
       margin-bottom: $spacing-md;
 
       .section-title {
-        font-size: $font-size-lg;
-        color: $color-text-dark;
+        // Per spec: 20px, bold, subtle contrast
+        font-size: 20px !important;
+        font-weight: $font-weight-bold !important;
+        color: mix($color-text-dark, #000, 85%);
         margin: 0;
       }
 
@@ -98,7 +106,8 @@
         align-items: center;
         gap: $spacing-sm;
 
-        .btn {
+        .btn,
+        .btn-filter {
           display: inline-flex;
           align-items: center;
           gap: 8px;
@@ -108,6 +117,13 @@
           padding: 8px 12px;
           border-radius: $border-radius-md;
           border: 1px solid rgba(0, 86, 210, 0.12);
+          transition: background $transition-fast ease, transform $transition-fast ease, box-shadow $transition-fast ease;
+
+          &:hover {
+            background: rgba(0, 86, 210, 0.12);
+            transform: translateY(-1px);
+            box-shadow: $shadow-sm;
+          }
         }
 
         .search {
@@ -138,6 +154,9 @@
     .report-table {
       width: 100%;
       border-collapse: collapse;
+      background: $color-bg-light;
+      border-radius: $border-radius-md;
+      overflow: hidden;
       thead th {
         text-align: left;
         font-size: $font-size-sm;
@@ -146,10 +165,16 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       }
       tbody td {
-        padding: 14px 12px;
+        padding: 14px 12px; // subtle internal cell padding
         font-size: $font-size-sm;
         color: $color-text;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      tbody tr:nth-child(even) {
+        background: rgba(0, 84, 209, 0.02);
+      }
+      tbody tr:hover {
+        background: rgba(0, 84, 209, 0.05);
       }
       .report-cell {
         display: flex;
@@ -162,9 +187,20 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-weight: $font-weight-medium;
-        &.complete { color: $color-success; }
-        &.progress { color: $color-primary; }
+        font-weight: $font-weight-semibold;
+        border-radius: 999px;
+        padding: 4px 10px;
+        line-height: 1;
+        height: auto;
+        .icon { display: inline-flex; }
+        &.complete {
+          background: $color-success;
+          color: #fff;
+        }
+        &.progress {
+          background: $color-primary-light;
+          color: #fff;
+        }
       }
       .row-actions {
         display: flex;
@@ -173,7 +209,10 @@
           background: transparent;
           color: $color-primary;
           font-size: $font-size-sm;
-          padding: 0;
+          padding: 6px 8px;
+          border-radius: $border-radius-sm;
+          transition: background $transition-fast ease, color $transition-fast ease;
+          &:hover { background: rgba(0, 86, 210, 0.08); color: $color-primary-dark; }
         }
       }
       .actions-col { width: 160px; }
@@ -187,15 +226,23 @@
     margin-bottom: $spacing-lg;
 
     .card {
-      background: $color-bg-light;
-      border-radius: $border-radius-lg;
+      background: $gradient-card;
+      border-radius: $border-radius-md;
       padding: $spacing-md;
       border: 1px solid rgba(0, 86, 210, 0.1);
       box-shadow: $shadow-sm;
+      transition: transform $transition-normal ease, box-shadow $transition-normal ease;
+
+      &:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: $shadow-md;
+      }
 
       .card-title {
-        font-size: $font-size-base;
-        color: $color-text-dark;
+        // Per spec: 20px, bold, subtle contrast
+        font-size: 20px;
+        font-weight: $font-weight-bold;
+        color: mix($color-text-dark, #000, 85%);
         margin-bottom: $spacing-sm;
       }
     }
@@ -208,19 +255,72 @@
         margin-bottom: $spacing-sm;
 
         .stat {
+          display: grid;
+          grid-template-columns: 100px 1fr;
+          column-gap: 12px;
+          align-items: center;
+          
+          .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: $border-radius-full;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 84, 209, 0.08);
+            color: $color-primary;
+          }
+          
           .value { font-size: $font-size-2xl; color: $color-primary; font-weight: $font-weight-bold; }
           .value.warning { color: $color-warning; }
           .label { font-size: $font-size-xs; color: $color-text-light; }
+
+          .mini-bar {
+            grid-column: 1 / -1;
+            height: 6px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 6px;
+            .fill {
+              height: 100%;
+              width: 0%;
+              background: $gradient-primary;
+              transition: width $transition-slow ease;
+            }
+          }
         }
       }
-      .progress-bar {
-        height: 8px;
-        background: $color-bg;
-        border-radius: 999px;
-        overflow: hidden;
-        .progress {
-          height: 100%;
-          background: $gradient-primary;
+      .progress-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: $spacing-sm;
+
+        .progress-value {
+          margin-left: auto;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-semibold;
+          color: $color-text-dark;
+          background: rgba(0, 84, 209, 0.1);
+          border: 1px solid rgba(0, 84, 209, 0.2);
+          padding: 4px 8px;
+          border-radius: 999px;
+          min-width: 48px;
+          text-align: center;
+        }
+
+        .progress-bar {
+          flex: 1 1 auto;
+          height: 8px;
+          background: $color-bg;
+          border-radius: 999px;
+          overflow: hidden;
+          .progress {
+            height: 100%;
+            background: $gradient-primary;
+            transition: width $transition-normal ease;
+          }
         }
       }
     }
@@ -249,25 +349,112 @@
     padding: $spacing-sm $spacing-md;
     border-radius: $border-radius-md;
     border: 1px solid rgba(0,0,0,0.06);
-    background: #F7FBFF;
+    background: #F7FBFF; // light blue default
     margin-bottom: $spacing-sm;
 
-    .icon { color: $color-primary; }
-    p { margin: 0; font-size: $font-size-sm; color: $color-text; }
+    .icon { color: $color-primary; flex: 0 0 auto; }
+    p { margin: 0; font-size: $font-size-sm; color: $color-text; flex: 1 1 auto; }
+    .close-btn {
+      flex: 0 0 auto;
+      background: transparent;
+      color: $color-text-light;
+      width: 28px;
+      height: 28px;
+      border-radius: $border-radius-full;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background $transition-fast ease, color $transition-fast ease;
+      &:hover { background: rgba(0,0,0,0.06); color: $color-text; }
+    }
   }
 
-  .promo-bar { background: rgba(16, 185, 129, 0.06); border-color: rgba(16,185,129,0.2); .icon { color: $color-success; } }
+  .promo-bar {
+    background: rgba(16, 185, 129, 0.06);
+    border-color: rgba(16,185,129,0.2);
+    .icon { color: $color-success; }
+  }
 
   .security-section {
-    background: $color-bg-light;
-    border-radius: $border-radius-lg;
+    position: relative;
+    background: $gradient-card;
+    border-radius: $border-radius-md;
     padding: $spacing-md;
     border: 1px solid rgba(0, 86, 210, 0.1);
     box-shadow: $shadow-sm;
 
-    .section-title { margin-bottom: 6px; }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -16px;
+      height: 1px;
+      background: rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-size: 20px !important;
+      font-weight: $font-weight-bold !important;
+      color: mix($color-text-dark, #000, 85%);
+
+      .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: $border-radius-full;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 84, 209, 0.08);
+        color: $color-primary;
+      }
+    }
     .security-text { color: $color-text; font-size: $font-size-sm; margin-bottom: $spacing-sm; }
-    .links { display: flex; gap: $spacing-md; flex-wrap: wrap; }
+    .links {
+      display: flex;
+      gap: $spacing-md;
+      flex-wrap: wrap;
+      margin-top: $spacing-sm;
+
+      .link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(0, 84, 209, 0.06);
+        border: 1px solid rgba(0, 84, 209, 0.15);
+        color: $color-text-dark;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        text-decoration: none;
+        transition: background $transition-fast ease, color $transition-fast ease, box-shadow $transition-fast ease, transform $transition-fast ease;
+
+        .link-icon {
+          width: 18px;
+          height: 18px;
+          color: $color-primary;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background: rgba(0, 84, 209, 0.1);
+          border-color: rgba(0, 84, 209, 0.25);
+          color: $color-primary-dark;
+          transform: translateY(-1px);
+          box-shadow: $shadow-sm;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   // removed help-button styles as per request
