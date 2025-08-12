@@ -31,6 +31,7 @@ const Auth = () => {
   // Login form state and validation
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [loginTouched, setLoginTouched] = useState({ email: false, password: false });
 
   const loginErrors = useMemo(() => ({
@@ -100,15 +101,22 @@ const Auth = () => {
     <main className="auth-page fade-in" aria-labelledby="auth-title">
       <div className="auth-container">
         <div className="auth-card">
-          <section className="branding" aria-hidden>
-            <div className="brand-gradient" />
+          <section className="branding slide-in-left" aria-hidden>
+            <div className="brand-overlay" />
+            <div className="brand-top">
+              <div className="brand-logo">HealthScan AI</div>
+            </div>
             <div className="brand-content">
-              <h2 className="brand-title">HealthScan AI</h2>
-              <p className="brand-subtitle">Secure. Simple. Smart insights from your medical reports.</p>
+              <h2 className="brand-tagline">Your Health, Simplified with AI</h2>
+              <p className="brand-subtitle">Understand your medical reports in simple, human language.</p>
+              <div className="brand-illustration" aria-hidden>
+                <img src="/src/assets/hero-banner-img.png" alt="AI-powered healthcare" />
+              </div>
             </div>
           </section>
 
-          <section className="form-section">
+          <section className="form-section slide-in-right">
+            <div className="form-card">
             <nav className="auth-tabs" role="tablist" aria-label="Authentication tabs">
               <button
                 role="tab"
@@ -133,8 +141,8 @@ const Auth = () => {
             {mode === 'login' ? (
               <>
                 <header className="form-header">
-                  <h1 id="auth-title" className="form-title">Welcome back</h1>
-                  <p className="form-subtitle">Log in to continue to your dashboard</p>
+                  <h1 id="auth-title" className="form-title">Welcome Back</h1>
+                  <p className="form-subtitle">Sign in to HealthScan AI</p>
                 </header>
 
                 {signupSuccess && (
@@ -175,7 +183,7 @@ const Auth = () => {
                       <input
                         id="login-password"
                         name="password"
-                        type="password"
+                        type={showLoginPassword ? 'text' : 'password'}
                         placeholder="••••••••"
                         value={loginPassword}
                         onChange={(e) => setLoginPassword(e.target.value)}
@@ -184,6 +192,14 @@ const Auth = () => {
                         aria-describedby={loginTouched.password && loginErrors.password ? 'login-password-error' : undefined}
                         required
                       />
+                      <button
+                        type="button"
+                        className="toggle-visibility"
+                        aria-label={showLoginPassword ? 'Hide password' : 'Show password'}
+                        onClick={() => setShowLoginPassword((v) => !v)}
+                      >
+                        {showLoginPassword ? 'Hide' : 'Show'}
+                      </button>
                     </div>
                     {loginTouched.password && loginErrors.password && (
                       <div id="login-password-error" className="error-text">{loginErrors.password}</div>
@@ -196,7 +212,21 @@ const Auth = () => {
 
                   <div className="form-actions">
                     <button type="submit" className="primary-btn" aria-label="Login" disabled={!isLoginValid}>
+                      <span className="btn-icon" aria-hidden>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                      </span>
                       Login
+                    </button>
+                    <button type="button" className="google-btn" aria-label="Sign in with Google">
+                      <span className="g-icon" aria-hidden>
+                        <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303C33.827 32.332 29.284 36 24 36c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.957 3.043l5.657-5.657C34.676 6.053 29.614 4 24 4 12.954 4 4 12.954 4 24s8.954 20 20 20c10.493 0 19.127-7.879 19.127-20 0-1.341-.138-2.651-.516-3.917z"/>
+                          <path fill="#FF3D00" d="M6.306 14.691l6.571 4.815C14.406 16.226 18.86 12 24 12c3.059 0 5.842 1.154 7.957 3.043l5.657-5.657C34.676 6.053 29.614 4 24 4 16.318 4 9.594 8.337 6.306 14.691z"/>
+                          <path fill="#4CAF50" d="M24 44c5.214 0 9.936-1.997 13.523-5.243l-6.241-5.27C29.196 35.091 26.755 36 24 36c-5.259 0-9.812-3.686-11.287-8.67l-6.482 5.002C8.449 39.556 15.635 44 24 44z"/>
+                          <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-1.093 3.19-3.641 5.694-6.78 6.987l6.241 5.27C36.241 40.203 40 34.667 40 27c0-2.326-.389-3.917-.389-3.917z"/>
+                        </svg>
+                      </span>
+                      Sign in with Google
                     </button>
                   </div>
                 </form>
@@ -317,6 +347,7 @@ const Auth = () => {
                 </p>
               </>
             )}
+            </div>
           </section>
         </div>
       </div>

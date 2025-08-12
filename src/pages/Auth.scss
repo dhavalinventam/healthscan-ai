@@ -1,42 +1,50 @@
 @import '../styles/variables.scss';
 
 .auth-page {
-  min-height: calc(100vh - 0px);
+  min-height: 100vh;
   display: grid;
   place-items: center;
-  background: $gradient-bg;
-  padding: $spacing-xl $spacing-lg;
+  background: linear-gradient(135deg, #F5F9FF 0%, #FFFFFF 100%);
+  padding: 0;
 }
 
 .auth-container {
   width: 100%;
-  max-width: 1040px;
+  max-width: none;
 }
 
 .auth-card {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+  max-width: none;
   gap: 0;
   background: $color-bg-light;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-xl, $shadow-glow;
   overflow: hidden;
 }
 
 .branding {
   position: relative;
-  min-height: 520px;
-  background: $gradient-primary;
+  background: linear-gradient(135deg, #133E87 0%, #1E8BFF 100%);
+  color: #fff;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 48px;
+  overflow: hidden;
 }
 
-.brand-gradient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(1200px 500px at -10% 0%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0) 100%);
-}
+.brand-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
+
+.brand-top { position: absolute; top: 20px; left: 24px; z-index: 2; }
+.brand-logo { font-weight: 700; letter-spacing: 0.5px; }
+
+.brand-content { position: relative; z-index: 2; max-width: 520px; }
+.brand-tagline { font-family: $font-family-primary; font-weight: 800; font-size: 36px; line-height: 1.15; }
+.brand-subtitle { margin-top: 8px; color: rgba(255,255,255,0.9); }
+.brand-illustration { margin-top: 24px; opacity: 0; animation: fadeInUp 0.8s ease 0.3s forwards; }
+.brand-illustration img { width: 100%; max-width: 560px; border-radius: 16px; box-shadow: $shadow-xl; border: 6px solid rgba(255,255,255,0.5); }
 
 .brand-content {
   position: relative;
@@ -56,22 +64,33 @@
 }
 
 .form-section {
-  padding: $spacing-2xl;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background: #fff;
 }
+
+.form-card {
+  width: 100%;
+  max-width: 420px; // consistent width for login/signup forms
+}
+
+.slide-in-left { animation: slideInLeft 0.8s ease both; }
+.slide-in-right { animation: slideInRight 0.8s ease both; }
 
 // Tabs / Toggle between Login and Signup
 .auth-tabs {
-  display: inline-flex;
-  align-self: flex-start;
+  display: flex;
+  align-self: center;
   background: rgba(14, 30, 59, 0.04);
   border: 1px solid rgba(14, 30, 59, 0.08);
   padding: 6px;
-  border-radius: $border-radius-lg;
-  margin-bottom: $spacing-lg;
-  box-shadow: $shadow-sm;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 2rem auto;
+  width: fit-content;
 
   .tab {
     position: relative;
@@ -92,9 +111,9 @@
   }
 }
 
-.form-header {
-  margin-bottom: $spacing-lg;
-}
+.form-header { text-align: center; margin-bottom: $spacing-lg; }
+.form-title { font-family: $font-family-primary; font-weight: 600; font-size: 28px; }
+.form-subtitle { color: $color-text; font-weight: 500; }
 
 .form-title {
   font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
@@ -125,7 +144,7 @@
     align-items: center;
     background: #fff;
     border: 1px solid rgba(14, 30, 59, 0.08);
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-sm !important;
     box-shadow: $shadow-sm;
     transition: transform $transition-fast ease, box-shadow $transition-normal ease, border-color $transition-normal ease;
 
@@ -173,7 +192,7 @@
 .primary-btn {
   width: 100%;
   padding: 0.95rem 1.2rem;
-  background: $gradient-primary;
+  background: linear-gradient(135deg, #133E87 0%, #1E8BFF 100%);
   color: #fff;
   font-weight: $font-weight-semibold;
   border-radius: $border-radius-sm;
@@ -197,6 +216,25 @@
     cursor: not-allowed;
   }
 }
+
+.google-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 0.9rem 1.2rem;
+  border-radius: $border-radius-sm;
+  border: 2px solid rgba(14, 30, 59, 0.12);
+  background: #fff;
+  color: $color-text-dark;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background $transition-normal ease, box-shadow $transition-normal ease, transform $transition-fast ease;
+
+  &:hover { background: #f8fbff; box-shadow: $shadow-md; transform: translateY(-1px); }
+}
+
+.toggle-visibility { background: transparent; border: none; color: $color-primary; font-weight: 600; padding: 0 12px 0 0; }
 
 .toggle-text {
   margin-top: $spacing-md;
@@ -243,23 +281,14 @@
 }
 
 @media (max-width: 960px) {
-  .auth-card {
-    grid-template-columns: 1fr;
-  }
-
-  .branding {
-    min-height: 200px;
-  }
+  .auth-card { grid-template-columns: 1fr; height: auto; }
+  .branding { min-height: 280px; padding: 32px; }
+  .form-section { padding: 32px 24px; }
 }
 
 @media (max-width: 560px) {
-  .auth-page {
-    padding: $spacing-lg $spacing-sm;
-  }
-
-  .form-section {
-    padding: $spacing-xl $spacing-lg;
-  }
+  .auth-page { padding: 0; }
+  .form-section { padding: 24px 16px; }
 
   .grid-2 {
     grid-template-columns: 1fr;

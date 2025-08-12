@@ -285,7 +285,7 @@ const ReportResult = () => {
           </div>
           <div className="ai-explanation">
             <div className="explanation-icon" aria-hidden="true">💡</div>
-            <div className="explanation-content">
+            <div className="explanation-content" style={{ gap: '0px' }}>
               <h4>AI Analysis Summary</h4>
               <p>AI has analyzed your report and explained the results in simple terms below. Key findings have been highlighted for your attention.</p>
             </div>
