@@ -87,7 +87,7 @@ const Testimonials = () => {
       <div className="container">
         <div className="testimonials-content">
           <div className="section-header">
-            <h2 className="section-title">What Our Users Say</h2>
+            <h2 className="section-title">What Our Users <span className="gradient-text">Say</span></h2>
           </div>
           <div className="testimonials-slider">
             <Slider {...settings}>

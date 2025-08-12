@@ -80,7 +80,7 @@ const Dashboard = () => {
         {/* Report History */}
         <section className="dashboard-section">
           <div className="section-header">
-            <h2 className="section-title">Report History</h2>
+            <h2 className="section-title">Report <span className="gradient-text">History</span></h2>
             <div className="section-actions">
               <button className="btn-filter" type="button">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>

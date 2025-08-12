@@ -69,7 +69,7 @@ const AboutHowItWorks = () => {
     <section className="about-how-it-works" ref={sectionRef} aria-label="How it works">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">How does HealthScan AI work?</h2>
+          <h2 className="section-title">How does <span className="gradient-text">HealthScan AI</span> work?</h2>
         </div>
 
         <div className="steps-container">

@@ -76,7 +76,7 @@ const AboutSecurity = () => {
     <section className="about-security" ref={sectionRef} aria-label="Data privacy and security">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Your Data Is Private & Secure</h2>
+          <h2 className="section-title">Your Data Is <span className="gradient-text">Private & Secure</span></h2>
         </div>
 
         <div className="security-grid">

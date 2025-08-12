@@ -1,25 +1,8 @@
 import React from 'react';
+import Button from '../button';
 import './Cta.scss';
 
 const Cta = () => {
-  const securityFeatures = [
-    {
-      id: 1,
-      icon: "🔒",
-      text: "Data Encrypted"
-    },
-    {
-      id: 2,
-      icon: "🏥",
-      text: "HIPAA Compliant"
-    },
-    {
-      id: 3,
-      icon: "🤖",
-      text: "AI-Powered"
-    }
-  ];
-
   const handleUploadClick = () => {
     // Handle upload button click
     console.log('Upload button clicked');
@@ -37,39 +20,32 @@ const Cta = () => {
           </div>
           
           <div className="cta-action">
-            <button 
+            <Button
+              variant="fill"
+              size="large"
               className="cta-button"
               onClick={handleUploadClick}
               aria-label="Upload medical report"
             >
               <span className="button-text">Upload Now</span>
               <span className="button-icon">
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path 
-                    d="M12 5V19M5 12L12 5L19 12" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
+                  <path
+                    d="M12 5V19M5 12L12 5L19 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
               </span>
-            </button>
-          </div>
-
-          <div className="security-features">
-            {securityFeatures.map((feature) => (
-              <div key={feature.id} className="security-item">
-                <span className="security-icon">{feature.icon}</span>
-                <span className="security-text">{feature.text}</span>
-              </div>
-            ))}
+            </Button>
           </div>
         </div>
       </div>

@@ -3,31 +3,27 @@
 .cta {
   position: relative;
   padding: $spacing-4xl 0;
-  background: $gradient-hero;
+  // Lighter, fresh gradient background with subtle pattern for depth
+  background: $gradient-bg;
   overflow: hidden;
 
   // Background decorative elements
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(0, 86, 210, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(38, 166, 154, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(29, 139, 255, 0.05) 0%, transparent 40%);
     z-index: 1;
   }
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 40%;
-    height: 160%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-    border-radius: 50%;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(240, 247, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
     z-index: 1;
   }
 
@@ -43,15 +39,14 @@
   }
 
   .cta-header {
-    margin-bottom: $spacing-2xl;
+    margin-bottom: $spacing-xl;
 
     .cta-title {
       font-size: $font-size-5xl;
-      font-weight: $font-weight-extrabold;
-      color: white;
-      line-height: 1.2;
-      margin-bottom: $spacing-lg;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-weight: $font-weight-bold;
+      color: $color-text-dark;
+      line-height: 1.15;
+      margin-bottom: $spacing-md;
 
       @media (max-width: 768px) {
         font-size: $font-size-4xl;
@@ -64,121 +59,36 @@
   }
 
   .cta-action {
-    margin-bottom: $spacing-3xl;
+    margin-bottom: 0;
 
     .cta-button {
-      min-width: 200px;
-      height: 64px;
-      font-size: $font-size-xl;
-      font-weight: $font-weight-semibold;
-      border-radius: $border-radius-lg;
-      box-shadow: $shadow-xl;
-      transition: all $transition-normal ease;
-      background: white;
-      color: $color-primary;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      // Enhance prominence while respecting global button styles
+      min-width: 220px;
+      box-shadow: $shadow-glow;
+      padding: 0 $spacing-2xl;
       gap: $spacing-sm;
-      padding: 0 $spacing-xl;
-
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: $shadow-glow-hover;
-        background: rgba(255, 255, 255, 0.95);
-      }
-
-      &:active {
-        transform: translateY(-1px);
-      }
-
-      .button-text {
-        font-weight: $font-weight-semibold;
-      }
-
-      .button-icon {
-        display: flex;
-        align-items: center;
-        transition: transform $transition-normal ease;
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-      }
-
-      &:hover .button-icon {
-        transform: translateY(2px);
-      }
+      
+      .button-text { font-weight: $font-weight-semibold; }
+      .button-icon { display: inline-flex; align-items: center; }
 
       @media (max-width: 768px) {
-        min-width: 180px;
-        height: 56px;
-        font-size: $font-size-lg;
-        padding: 0 $spacing-lg;
+        min-width: 190px;
+        padding: 0 $spacing-xl;
       }
     }
   }
 
-  .security-features {
-    display: flex;
-    justify-content: center;
-    gap: $spacing-2xl;
-    flex-wrap: wrap;
-
-    @media (max-width: 768px) {
-      gap: $spacing-xl;
-    }
-
-    @media (max-width: 576px) {
-      flex-direction: column;
-      align-items: center;
-      gap: $spacing-lg;
-    }
-
-    .security-item {
-      display: flex;
-      align-items: center;
-      gap: $spacing-sm;
-      background: rgba(255, 255, 255, 0.1);
-      padding: $spacing-md $spacing-lg;
-      border-radius: $border-radius-lg;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all $transition-normal ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: translateY(-2px);
-      }
-
-      .security-icon {
-        font-size: $font-size-xl;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-      }
-
-      .security-text {
-        color: white;
-        font-weight: $font-weight-semibold;
-        font-size: $font-size-base;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        @media (max-width: 768px) {
-          font-size: $font-size-sm;
-        }
-      }
-    }
-  }
+  // Security features section removed for a cleaner, focused CTA
 
   @media (max-width: 768px) {
     padding: $spacing-3xl 0;
 
     .cta-header {
-      margin-bottom: $spacing-xl;
+      margin-bottom: $spacing-lg;
     }
 
     .cta-action {
-      margin-bottom: $spacing-2xl;
+      margin-bottom: 0;
     }
   }
 }
@@ -199,10 +109,7 @@
   animation-fill-mode: both;
 }
 
-.security-features {
-  animation: fadeInUp 0.8s ease-out 0.3s;
-  animation-fill-mode: both;
-}
+// Removed security-features animation as the section no longer exists
 
 @keyframes fadeInUp {
   from {
@@ -219,8 +126,7 @@
 @media (max-width: 768px) {
   .cta-content,
   .cta-title,
-  .cta-button,
-  .security-features {
+  .cta-button {
     animation: none;
   }
 }
@@ -228,7 +134,7 @@
 // Accessibility improvements
 .cta {
   .cta-button:focus-visible {
-    outline: 2px solid white;
+    outline: 2px solid $color-primary;
     outline-offset: 2px;
   }
 }
@@ -236,17 +142,13 @@
 // Print styles
 @media print {
   .cta {
-    background: #0078D4 !important;
+    background: #F0F6FF !important;
     
     .cta-button {
       background: white !important;
-      color: #0078D4 !important;
+      color: #0054D1 !important;
       box-shadow: none !important;
       border: 2px solid white !important;
-    }
-
-    .security-features {
-      color: white !important;
     }
   }
 }
@@ -254,7 +156,7 @@
 // High contrast mode support
 @media (prefers-contrast: high) {
   .cta {
-    background: #005a9e !important;
+    background: #e6f0ff !important;
     
     .cta-button {
       border: 2px solid white !important;
@@ -266,7 +168,6 @@
 @media (prefers-reduced-motion: reduce) {
   .cta {
     .cta-button,
-    .security-item,
     .button-icon {
       transition: none !important;
     }

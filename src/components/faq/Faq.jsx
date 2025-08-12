@@ -40,7 +40,7 @@ const Faq = () => {
       <div className="container">
         <div className="faq-content">
           <div className="section-header">
-            <h2 className="section-title">Frequently Asked Questions</h2>
+            <h2 className="section-title">Frequently Asked <span className="gradient-text">Questions</span></h2>
             <p className="section-subtitle">
               Get answers to common questions about HealthScan AI
             </p>

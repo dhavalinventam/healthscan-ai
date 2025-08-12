@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './typography.scss';
 
 // Google Fonts import - Poppins and Open Sans
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
@@ -44,6 +45,14 @@ h1, h2, h3, h4, h5, h6 {
 p, span, button, input, textarea, select, label, li, a, td, th, div {
   font-family: $font-family-secondary;
   font-weight: $font-weight-regular;
+}
+
+// Enforce global paragraph typography to spec
+p {
+  font-size: var(--text-description-size);
+  font-weight: var(--text-description-weight);
+  line-height: 1.65;
+  color: $color-text;
 }
 
 // Links

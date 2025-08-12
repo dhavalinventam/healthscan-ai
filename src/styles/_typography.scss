@@ -1,1 +1,81 @@
-@import './variables.scss'; 
+@import './variables.scss';
+
+// Global typography design tokens using CSS variables for easy theming
+:root {
+  --heading-section-size: 40px; // 40px per spec
+  --heading-section-weight: 600; // semibold
+  --text-description-size: 16px; // 16px per spec
+  --text-description-weight: 500; // medium
+
+  // Section spacing tokens
+  --section-spacing-y: 4rem;
+  --section-spacing-y-mobile: 2.5rem;
+  --section-title-margin-bottom: 1rem;
+  --section-header-margin-bottom: 3rem;
+  --section-header-margin-bottom-mobile: 2rem;
+}
+
+// Reusable heading class and global `.section-title` normalization
+.heading-section,
+.section-title {
+  font-size: var(--heading-section-size) !important;
+  font-weight: var(--heading-section-weight) !important;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: $color-text-dark;
+  margin: 0 0 var(--section-title-margin-bottom) 0;
+}
+
+// Reusable description/paragraph class and normalization of common subtitle classes
+.text-description,
+.section-subtitle,
+.section-description,
+.lead {
+  font-size: var(--text-description-size) !important;
+  font-weight: var(--text-description-weight) !important;
+  line-height: 1.6;
+  color: $color-text;
+}
+
+// Optional utility for consistent vertical section padding
+.section,
+.page-section {
+  padding: var(--section-spacing-y) 0;
+
+  @media (max-width: 768px) {
+    padding: var(--section-spacing-y-mobile) 0;
+  }
+}
+
+// Consistent section header spacing across pages
+.section-header {
+  margin-bottom: var(--section-header-margin-bottom);
+
+  @media (max-width: 768px) {
+    margin-bottom: var(--section-header-margin-bottom-mobile);
+  }
+}
+
+// Global gradient text utility matching Home page style
+.gradient-text {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+// Mobile adjustments for headings for better balance
+@media (max-width: 768px) {
+  .heading-section,
+  .section-title {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading-section,
+  .section-title {
+    font-size: 28px !important;
+  }
+}

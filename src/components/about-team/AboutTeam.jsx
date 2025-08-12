@@ -61,7 +61,7 @@ const AboutTeam = () => {
     <section className="about-team" ref={sectionRef} aria-label="Meet the team">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Meet the Experts Behind HealthScan AI</h2>
+          <h2 className="section-title">Meet the Experts Behind <span className="gradient-text">HealthScan AI</span></h2>
         </div>
 
         <div className="team-grid">

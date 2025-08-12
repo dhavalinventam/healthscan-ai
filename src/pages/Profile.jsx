@@ -8,7 +8,7 @@ const Profile = () => {
     <div className="dashboard-page">
       <div className="container" style={{ paddingTop: '1.5rem' }}>
         <section className="dashboard-section" style={{ marginBottom: '1.5rem' }}>
-          <h2 className="section-title" style={{ marginBottom: '0.5rem' }}>Profile</h2>
+          <h2 className="section-title">Your <span className="gradient-text">Profile</span></h2>
           <p className="security-text">Manage your account details.</p>
         </section>
 
