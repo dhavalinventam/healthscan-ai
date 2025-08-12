@@ -110,6 +110,8 @@
        padding: $spacing-xl;
        box-shadow: $shadow-lg;
        border: 1px solid rgba(0, 86, 210, 0.1);
+       width: 100%;
+       max-width: 100%;
 
          .form-title {
        font-family: $font-family-primary;

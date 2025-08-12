@@ -11,6 +11,7 @@ import ReportResultPage from "./pages/ReportResult";
 import Dashboard from "./pages/Dashboard";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
 import { isAuthenticated } from "./utils/auth";
 
 function ProtectedRoute({ children }) {
@@ -22,7 +23,7 @@ function ProtectedRoute({ children }) {
 
 function AppRoutes() {
   const location = useLocation();
-  const hideChrome = ['/login', '/signup'].includes(location.pathname);
+  const hideChrome = ['/login', '/signup', '/404'].includes(location.pathname);
 
   return (
     <div className="app-wrapper">
@@ -52,6 +53,8 @@ function AppRoutes() {
         />
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<Auth />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
       {!hideChrome && <Footer />}
     </div>
