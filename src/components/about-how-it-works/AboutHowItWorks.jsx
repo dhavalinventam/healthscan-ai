@@ -69,7 +69,8 @@ const AboutHowItWorks = () => {
     <section className="about-how-it-works" ref={sectionRef} aria-label="How it works">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">How does <span className="gradient-text">HealthScan AI</span> work?</h2>
+          <h2 className="section-title">How It <span className="gradient-text">Works</span></h2>
+          <p className="section-subtitle">A simple, secure process that turns complex medical reports into clear, actionable insights.</p>
         </div>
 
         <div className="steps-container">

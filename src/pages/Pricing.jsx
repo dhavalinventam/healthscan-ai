@@ -151,6 +151,16 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Global Heading: How It Works */}
+      <section className="pricing-how-it-works" aria-label="How it works heading">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">How It <span className="gradient-text">Works</span></h2>
+            <p className="section-subtitle">A clear, simple process to get value fast — upload your report, let our AI analyze it, and receive easy‑to‑understand insights.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Modern Pricing Plans */}
       <section className="pricing-plans" aria-label="Pricing plans">
         <div className="container">
@@ -266,8 +276,8 @@ const Pricing = () => {
       <section className="pricing-compare" aria-label="Compare plans">
         <div className="container">
           <div className="compare-header">
-            <h2 className="compare-title">Feature Comparison</h2>
-            <p className="compare-subtitle">See how our plans stack up against each other</p>
+            <h2 className="section-title">Feature <span className="gradient-text">Comparison</span></h2>
+            <p className="section-subtitle">See how our plans stack up against each other</p>
           </div>
           
           <div className="compare-table-wrapper">
@@ -337,8 +347,8 @@ const Pricing = () => {
       <section className="pricing-faq" aria-label="Pricing FAQ">
         <div className="container">
           <div className="faq-header">
-            <h2 className="faq-title">Frequently Asked Questions</h2>
-            <p className="faq-subtitle">Everything you need to know about our pricing</p>
+            <h2 className="section-title">Frequently Asked <span className="gradient-text">Questions</span></h2>
+            <p className="section-subtitle">Everything you need to know about our pricing</p>
           </div>
           
           <div className="faq-grid">

@@ -150,7 +150,13 @@ const Dashboard = () => {
                       )}
                     </td>
                     <td className="row-actions">
-                      <button className="link-btn" type="button">View</button>
+                      <a
+                        className="link-btn"
+                        href={`/report-result/`}
+                        aria-label={`View report ${row.name}`}
+                      >
+                        View
+                      </a>
                       <button className="link-btn" type="button">Download</button>
                     </td>
                   </tr>

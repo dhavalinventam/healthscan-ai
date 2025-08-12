@@ -4,7 +4,6 @@ import AboutMission from '../components/about-mission';
 import AboutStory from '../components/about-story';
 import AboutTeam from '../components/about-team';
 import AboutHowItWorks from '../components/about-how-it-works';
-import AboutSecurity from '../components/about-security';
 import Cta from '../components/cta';
 
 const About = () => {
@@ -15,7 +14,6 @@ const About = () => {
       <AboutMission />
       <AboutTeam />
       <AboutHowItWorks />
-      <AboutSecurity />
       <Cta />
     </main>
   );

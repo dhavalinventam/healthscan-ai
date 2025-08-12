@@ -6,6 +6,22 @@
   overflow-x: hidden;
 }
 
+// Global heading section for Pricing page
+.pricing-how-it-works {
+  padding: 60px 0 20px;
+  background: #ffffff;
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  .section-header { text-align: center; }
+  .section-title { font-size: 40px; font-weight: 600; }
+  .section-subtitle {
+    font-size: 16px; font-weight: 500; color: $color-text; max-width: 760px; margin: 8px auto 0;
+  }
+
+  @media (max-width: 768px) { padding: 40px 0 10px; }
+}
+
 // Modern Hero Section
 .pricing-hero {
   position: relative;
@@ -587,19 +603,15 @@
     text-align: center;
     margin-bottom: 60px;
 
-    .compare-title {
-      font-size: 48px;
-      font-weight: 800;
-      color: #1f2937;
-      margin-bottom: 16px;
-      background: $gradient-primary;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .section-title {
+      font-size: 40px; // align to global
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
-    .compare-subtitle {
-      font-size: 20px;
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 500;
       color: #6b7280;
       max-width: 600px;
       margin: 0 auto;
@@ -829,19 +841,15 @@
     text-align: center;
     margin-bottom: 60px;
 
-    .faq-title {
-      font-size: 48px;
-      font-weight: 800;
-      color: #1f2937;
-      margin-bottom: 16px;
-      background: $gradient-primary;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .section-title {
+      font-size: 40px; // align to global
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
-    .faq-subtitle {
-      font-size: 20px;
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 500;
       color: #6b7280;
       max-width: 600px;
       margin: 0 auto;

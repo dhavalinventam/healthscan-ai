@@ -2,7 +2,7 @@
 
 .about-how-it-works {
   position: relative;
-  padding: $spacing-4xl 0;
+  padding: 80px 0; // per spec
   background: $color-bg-blue;
 
   // entrance
@@ -25,18 +25,18 @@
     margin-bottom: $spacing-4xl;
 
     .section-title {
-      font-size: $font-size-5xl;
-      font-weight: $font-weight-extrabold;
+      font-size: 40px; // Poppins per spec
+      font-weight: 600;
       color: $color-text-dark;
       line-height: 1.2;
+    }
 
-      @media (max-width: 768px) {
-        font-size: $font-size-4xl;
-      }
-
-      @media (max-width: 576px) {
-        font-size: $font-size-3xl;
-      }
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 500;
+      color: $color-text;
+      max-width: 760px;
+      margin: $spacing-sm auto 0;
     }
   }
 
@@ -77,12 +77,12 @@
 
     .step-card {
       text-align: center;
-      padding: $spacing-2xl;
-      border-radius: $border-radius-xl;
-      background: $color-bg-light;
+      padding: 20px; // per spec
+      border-radius: 12px;
+      background: #fff;
       box-shadow: $shadow-lg;
       border: 1px solid rgba(5, 84, 209, 0.08);
-      transition: all $transition-normal ease;
+      transition: transform $transition-normal ease, box-shadow $transition-normal ease;
       animation: stepIn 0.6s ease forwards;
       opacity: 0;
       animation-delay: calc(var(--step-index) * 200ms);
@@ -93,25 +93,16 @@
         content: counter(step-counter);
         counter-increment: step-counter;
         position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
-        height: 40px;
-        background: $gradient-primary;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-lg;
-        box-shadow: $shadow-glow;
-        z-index: 3;
+        top: 8px;
+        left: 12px;
+        font-size: 52px;
+        font-weight: 800;
+        color: rgba(0,84,209,0.08);
+        z-index: 0;
       }
 
       &:hover {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
         box-shadow: $shadow-xl;
         border-color: rgba(5, 84, 209, 0.15);
       }
@@ -120,26 +111,27 @@
         margin-bottom: $spacing-xl;
 
         .step-icon {
-          width: 100px;
-          height: 100px;
+          width: 92px;
+          height: 92px;
           margin: 0 auto;
-          background: $gradient-primary;
+          background: #fff;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: white;
-          box-shadow: $shadow-glow;
+          color: $color-primary;
+          box-shadow: 0 0 0 3px rgba(0,84,209,0.12), 0 12px 24px rgba(0,0,0,0.06);
           transition: all $transition-normal ease;
+          border: 2px solid rgba(0,84,209,0.15);
 
           svg {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
           }
 
           &:hover {
             transform: scale(1.1);
-            box-shadow: $shadow-glow-hover;
+            box-shadow: 0 0 0 4px rgba(30,139,255,0.25), 0 0 0 8px rgba(38,166,154,0.15);
           }
 
           @media (max-width: 768px) {
@@ -155,7 +147,7 @@
       }
 
       .step-title {
-        font-size: $font-size-2xl;
+        font-size: 20px;
         font-weight: $font-weight-bold;
         color: $color-text-dark;
         margin-bottom: $spacing-md;
@@ -167,7 +159,7 @@
       }
 
       .step-description {
-        font-size: $font-size-base;
+        font-size: 15px;
         color: $color-text-light;
         line-height: 1.6;
         margin: 0;
@@ -197,7 +189,7 @@
 
 @media (max-width: 768px) {
   .about-how-it-works {
-    padding: $spacing-3xl 0;
+    padding: 50px 0;
 
     .section-header {
       margin-bottom: $spacing-3xl;
