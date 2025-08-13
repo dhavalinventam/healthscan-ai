@@ -207,7 +207,7 @@ const Auth = () => {
                   </div>
 
                   <div className="meta-row">
-                    <Link to="#" className="link">Forgot Password?</Link>
+                    <Link to="/forgot-password" className="link">Forgot Password?</Link>
                   </div>
 
                   <div className="form-actions">
@@ -232,8 +232,7 @@ const Auth = () => {
                 </form>
 
                 <p className="toggle-text">
-                  Don’t have an account?
-                  <button type="button" className="link inline" onClick={() => navigate('/signup')}>Sign up</button>
+                  Don’t have an account? <button type="button" className="link inline" onClick={() => navigate('/signup')}> Sign up</button>
                 </p>
               </>
             ) : (
@@ -342,8 +341,7 @@ const Auth = () => {
                 </form>
 
                 <p className="toggle-text">
-                  Already have an account?
-                  <button type="button" className="link inline" onClick={() => navigate('/login')}>Log in</button>
+                  Already have an account? <button type="button" className="link inline" onClick={() => navigate('/login')}>Log in</button>
                 </p>
               </>
             )}
