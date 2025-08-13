@@ -141,6 +141,10 @@
   color: $color-text;
 }
 
+.form-control:focus {
+  box-shadow: none !important;
+}
+
 .auth-form {
   display: grid;
   gap: $spacing-md;
@@ -148,7 +152,7 @@
 
 .input-group {
   display: grid;
-  gap: $spacing-xs;
+  gap: 0;
 
   label {
     font-family: $font-family-secondary;

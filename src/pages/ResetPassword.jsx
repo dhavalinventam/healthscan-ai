@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Form, Row, Col } from 'react-bootstrap';
 import './ResetPassword.scss';
 
 const ResetPassword = () => {
@@ -54,68 +55,67 @@ const ResetPassword = () => {
                 <p className="form-subtitle">Enter your new password below.</p>
               </header>
 
-              <form className="reset-form" onSubmit={handleSubmit} noValidate>
-                <div className="input-group">
-                  <label htmlFor="reset-password">New Password</label>
-                  <div className={`input-field ${touched.password && passwordErrors.password ? 'has-error' : ''}`}>
-                    <span className="icon" aria-hidden><IconLock /></span>
-                    <input
-                      id="reset-password"
-                      name="password"
-                      type={showPassword ? 'text' : 'password'}
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      onBlur={() => setTouched((t) => ({ ...t, password: true }))}
-                      aria-invalid={Boolean(touched.password && passwordErrors.password)}
-                      aria-describedby={touched.password && passwordErrors.password ? 'reset-password-error' : undefined}
-                      required
-                    />
-                    <button type="button" className="toggle-visibility" onClick={() => setShowPassword((v) => !v)}>
-                      {showPassword ? 'Hide' : 'Show'}
-                    </button>
-                  </div>
-                  {touched.password && passwordErrors.password && (
-                    <div id="reset-password-error" className="error-text">{passwordErrors.password}</div>
-                  )}
-                </div>
+              <Form className="reset-form" onSubmit={handleSubmit} noValidate>
+                <Row className="g-3">
+                  <Col xs={12}>
+                    <div className="input-group" controlId="resetPassword">
+                      <Form.Label>New Password</Form.Label>
+                      <div className={`input-field ${touched.password && passwordErrors.password ? 'has-error' : ''}`}>
+                        <span className="icon" aria-hidden><IconLock /></span>
+                        <Form.Control
+                          type={showPassword ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          onBlur={() => setTouched((t) => ({ ...t, password: true }))}
+                          aria-invalid={Boolean(touched.password && passwordErrors.password)}
+                          aria-describedby={touched.password && passwordErrors.password ? 'reset-password-error' : undefined}
+                          required
+                        />
+                        <button type="button" className="toggle-visibility" onClick={() => setShowPassword((v) => !v)}>
+                          {showPassword ? 'Hide' : 'Show'}
+                        </button>
+                      </div>
+                      {touched.password && passwordErrors.password && (
+                        <div id="reset-password-error" className="error-text">{passwordErrors.password}</div>
+                      )}
+                    </div>
+                  </Col>
 
-                <div className="input-group">
-                  <label htmlFor="reset-confirm">Confirm Password</label>
-                  <div className={`input-field ${touched.confirm && passwordErrors.confirm ? 'has-error' : ''}`}>
-                    <span className="icon" aria-hidden><IconLock /></span>
-                    <input
-                      id="reset-confirm"
-                      name="confirm"
-                      type={showConfirm ? 'text' : 'password'}
-                      placeholder="••••••••"
-                      value={confirm}
-                      onChange={(e) => setConfirm(e.target.value)}
-                      onBlur={() => setTouched((t) => ({ ...t, confirm: true }))}
-                      aria-invalid={Boolean(touched.confirm && passwordErrors.confirm)}
-                      aria-describedby={touched.confirm && passwordErrors.confirm ? 'reset-confirm-error' : undefined}
-                      required
-                    />
-                    <button type="button" className="toggle-visibility" onClick={() => setShowConfirm((v) => !v)}>
-                      {showConfirm ? 'Hide' : 'Show'}
-                    </button>
-                  </div>
-                  {touched.confirm && passwordErrors.confirm && (
-                    <div id="reset-confirm-error" className="error-text">{passwordErrors.confirm}</div>
-                  )}
-                </div>
+                  <Col xs={12}>
+                    <div className="input-group" controlId="resetConfirm">
+                      <Form.Label>Confirm Password</Form.Label>
+                      <div className={`input-field ${touched.confirm && passwordErrors.confirm ? 'has-error' : ''}`}>
+                        <span className="icon" aria-hidden><IconLock /></span>
+                        <Form.Control
+                          type={showConfirm ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          value={confirm}
+                          onChange={(e) => setConfirm(e.target.value)}
+                          onBlur={() => setTouched((t) => ({ ...t, confirm: true }))}
+                          aria-invalid={Boolean(touched.confirm && passwordErrors.confirm)}
+                          aria-describedby={touched.confirm && passwordErrors.confirm ? 'reset-confirm-error' : undefined}
+                          required
+                        />
+                        <button type="button" className="toggle-visibility" onClick={() => setShowConfirm((v) => !v)}>
+                          {showConfirm ? 'Hide' : 'Show'}
+                        </button>
+                      </div>
+                      {touched.confirm && passwordErrors.confirm && (
+                        <div id="reset-confirm-error" className="error-text">{passwordErrors.confirm}</div>
+                      )}
+                    </div>
+                  </Col>
 
-                <div className="form-actions">
-                  <button
-                    type="submit"
-                    className="primary-btn"
-                    aria-label="Reset password"
-                    disabled={!isValid || isSubmitting}
-                  >
-                    {isSubmitting ? 'Saving…' : 'Save New Password'}
-                  </button>
-                </div>
-              </form>
+                  <Col xs={12}>
+                    <div className="form-actions">
+                      <button type="submit" className="primary-btn" aria-label="Reset password" disabled={!isValid || isSubmitting}>
+                        {isSubmitting ? 'Saving…' : 'Save New Password'}
+                      </button>
+                    </div>
+                  </Col>
+                </Row>
+              </Form>
             </>
           ) : (
             <div className="success-state" role="status" aria-live="polite">

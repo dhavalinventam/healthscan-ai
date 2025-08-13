@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Form, Row, Col } from 'react-bootstrap';
 import './ForgotPassword.scss';
 
-const emailPattern = /^(?:[a-zA-Z0-9_'^&\/+-])+(?:\.(?:[a-zA-Z0-9_'^&\/+-])+)*@(?:(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})$/;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -54,46 +55,52 @@ const ForgotPassword = () => {
             <p className="form-subtitle">Enter your email and we’ll send you a reset link.</p>
           </header>
 
-          {!submitted ? (
-            <form className="forgot-form" onSubmit={handleSubmit} noValidate>
-              <div className="input-group">
-                <label htmlFor="forgot-email">Email</label>
-                <div className={`input-field ${touched && error ? 'has-error' : ''}`}>
-                  <span className="icon" aria-hidden><IconMail /></span>
-                  <input
-                    id="forgot-email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onBlur={() => setTouched(true)}
-                    aria-invalid={Boolean(touched && error)}
-                    aria-describedby={touched && error ? 'forgot-email-error' : undefined}
-                    required
-                  />
-                </div>
-                {touched && error && (
-                  <div id="forgot-email-error" className="error-text">{error}</div>
-                )}
-              </div>
+            {!submitted ? (
+            <Form className="forgot-form" onSubmit={handleSubmit} noValidate>
+              <Row className="g-3">
+                <Col xs={12}>
+                  <div className="input-group" controlId="forgotEmail">
+                    <Form.Label>Email</Form.Label>
+                    <div className={`input-field ${touched && error ? 'has-error' : ''}`}>
+                      <span className="icon" aria-hidden><IconMail /></span>
+                      <Form.Control
+                        type="email"
+                        placeholder="you@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onBlur={() => setTouched(true)}
+                        aria-invalid={Boolean(touched && error)}
+                        aria-describedby={touched && error ? 'forgot-email-error' : undefined}
+                        required
+                      />
+                    </div>
+                    {touched && error && (
+                      <div id="forgot-email-error" className="error-text">{error}</div>
+                    )}
+                  </div>
+                </Col>
 
-              <div className="form-actions">
-                <button
-                  type="submit"
-                  className="primary-btn"
-                  aria-label="Send reset link"
-                  disabled={!isValid || isSubmitting}
-                >
-                  {isSubmitting ? 'Sending…' : 'Send Reset Link'}
-                </button>
-              </div>
+                <Col xs={12}>
+                  <div className="form-actions">
+                    <button
+                      type="submit"
+                      className="primary-btn"
+                      aria-label="Send reset link"
+                      disabled={!isValid || isSubmitting}
+                    >
+                      {isSubmitting ? 'Sending…' : 'Send Reset Link'}
+                    </button>
+                  </div>
+                </Col>
 
-              <p className="meta-text text-center">
-                Remembered your password?{' '}
-                <button type="button" className="link inline" onClick={() => navigate('/login')}>Login</button>
-              </p>
-            </form>
+                <Col xs={12}>
+                  <p className="meta-text text-center">
+                    Remembered your password?{' '}
+                    <button type="button" className="link inline" onClick={() => navigate('/login')}>Login</button>
+                  </p>
+                </Col>
+              </Row>
+            </Form>
           ) : (
             <div className="success-state" role="status" aria-live="polite">
               <div className="success-icon" aria-hidden>

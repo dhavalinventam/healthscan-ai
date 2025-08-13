@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Form } from 'react-bootstrap';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { setAuth, makeUserFromLogin } from '../utils/auth';
 import './Auth.scss';
 
 // Simple email regex for client-side validation
-const emailPattern = /^(?:[a-zA-Z0-9_'^&\/+-])+(?:\.(?:[a-zA-Z0-9_'^&\/+-])+)*@(?:(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})$/;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Auth = () => {
   const location = useLocation();
@@ -46,6 +47,8 @@ const Auth = () => {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [signupConfirm, setSignupConfirm] = useState('');
+  const [showSignupPassword, setShowSignupPassword] = useState(false);
+  const [showSignupConfirm, setShowSignupConfirm] = useState(false);
   const [signupTouched, setSignupTouched] = useState({ username: false, email: false, password: false, confirm: false });
 
   const signupErrors = useMemo(() => ({
@@ -155,10 +158,10 @@ const Auth = () => {
 
                 <form className="auth-form" onSubmit={handleLoginSubmit} noValidate>
                   <div className="input-group">
-                    <label htmlFor="login-email">Email</label>
+                    <Form.Label htmlFor="login-email">Email</Form.Label>
                     <div className={`input-field ${loginTouched.email && loginErrors.email ? 'has-error' : ''}`}>
                       <span className="icon" aria-hidden><IconMail /></span>
-                      <input
+                      <Form.Control
                         id="login-email"
                         name="email"
                         type="email"
@@ -177,10 +180,10 @@ const Auth = () => {
                   </div>
 
                   <div className="input-group">
-                    <label htmlFor="login-password">Password</label>
+                    <Form.Label htmlFor="login-password">Password</Form.Label>
                     <div className={`input-field ${loginTouched.password && loginErrors.password ? 'has-error' : ''}`}>
                       <span className="icon" aria-hidden><IconLock /></span>
-                      <input
+                      <Form.Control
                         id="login-password"
                         name="password"
                         type={showLoginPassword ? 'text' : 'password'}
@@ -244,10 +247,10 @@ const Auth = () => {
 
                 <form className="auth-form" onSubmit={handleSignupSubmit} noValidate>
                   <div className="input-group">
-                    <label htmlFor="signup-username">Username</label>
+                    <Form.Label htmlFor="signup-username">Username</Form.Label>
                     <div className={`input-field ${signupTouched.username && signupErrors.username ? 'has-error' : ''}`}>
                       <span className="icon" aria-hidden><IconUser /></span>
-                      <input
+                      <Form.Control
                         id="signup-username"
                         name="username"
                         type="text"
@@ -266,10 +269,10 @@ const Auth = () => {
                   </div>
 
                   <div className="input-group">
-                    <label htmlFor="signup-email">Email</label>
+                    <Form.Label htmlFor="signup-email">Email</Form.Label>
                     <div className={`input-field ${signupTouched.email && signupErrors.email ? 'has-error' : ''}`}>
                       <span className="icon" aria-hidden><IconMail /></span>
-                      <input
+                      <Form.Control
                         id="signup-email"
                         name="email"
                         type="email"
@@ -289,13 +292,13 @@ const Auth = () => {
 
                   <div className="grid-2">
                     <div className="input-group">
-                      <label htmlFor="signup-password">Password</label>
+                      <Form.Label htmlFor="signup-password">Password</Form.Label>
                       <div className={`input-field ${signupTouched.password && signupErrors.password ? 'has-error' : ''}`}>
                         <span className="icon" aria-hidden><IconLock /></span>
-                        <input
+                        <Form.Control
                           id="signup-password"
                           name="password"
-                          type="password"
+                          type={showSignupPassword ? 'text' : 'password'}
                           placeholder="••••••••"
                           value={signupPassword}
                           onChange={(e) => setSignupPassword(e.target.value)}
@@ -304,6 +307,7 @@ const Auth = () => {
                           aria-describedby={signupTouched.password && signupErrors.password ? 'signup-password-error' : undefined}
                           required
                         />
+                        <button type="button" className="toggle-visibility" onClick={() => setShowSignupPassword((v) => !v)}>{showSignupPassword ? 'Hide' : 'Show'}</button>
                       </div>
                       {signupTouched.password && signupErrors.password && (
                         <div id="signup-password-error" className="error-text">{signupErrors.password}</div>
@@ -311,13 +315,13 @@ const Auth = () => {
                     </div>
 
                     <div className="input-group">
-                      <label htmlFor="signup-confirm">Confirm Password</label>
+                      <Form.Label htmlFor="signup-confirm">Confirm Password</Form.Label>
                       <div className={`input-field ${signupTouched.confirm && signupErrors.confirm ? 'has-error' : ''}`}>
                         <span className="icon" aria-hidden><IconLock /></span>
-                        <input
+                        <Form.Control
                           id="signup-confirm"
                           name="confirm"
-                          type="password"
+                          type={showSignupConfirm ? 'text' : 'password'}
                           placeholder="••••••••"
                           value={signupConfirm}
                           onChange={(e) => setSignupConfirm(e.target.value)}
@@ -326,6 +330,7 @@ const Auth = () => {
                           aria-describedby={signupTouched.confirm && signupErrors.confirm ? 'signup-confirm-error' : undefined}
                           required
                         />
+                        <button type="button" className="toggle-visibility" onClick={() => setShowSignupConfirm((v) => !v)}>{showSignupConfirm ? 'Hide' : 'Show'}</button>
                       </div>
                       {signupTouched.confirm && signupErrors.confirm && (
                         <div id="signup-confirm-error" className="error-text">{signupErrors.confirm}</div>
