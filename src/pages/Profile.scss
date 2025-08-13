@@ -25,7 +25,7 @@
   .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .hero-left { display: inline-flex; align-items: center; gap: 12px; }
   .hero-right { display: inline-flex; align-items: center; gap: 10px; }
-  .hero-title { font-weight: 700; color: $color-text-dark; }
+  .hero-title { font-weight: 700; color: $color-text-dark; margin-bottom: 5px; font-size: 34px; }
   .hero-subtitle { font-size: 14px; color: $color-text; }
   .plan-badge { background: rgba(0,86,210,0.1); color: $color-primary; padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; }
   .renewal-text { font-size: 12px; color: $color-text; }
