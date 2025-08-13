@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Col } from 'react-bootstrap';
-import './ResetPassword.scss';
+import './Auth.scss';
 
 const ResetPassword = () => {
   const navigate = useNavigate();

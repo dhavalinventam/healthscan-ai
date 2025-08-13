@@ -13,6 +13,22 @@
   max-width: none;
 }
 
+// Simple wrappers for Forgot/Reset pages to share the same theme
+.forgot-page,
+.reset-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #F5F9FF 0%, #FFFFFF 100%);
+  padding: $spacing-xl $spacing-lg;
+}
+
+.forgot-container,
+.reset-container {
+  width: 100%;
+  max-width: 520px;
+}
+
 .auth-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -37,8 +53,14 @@
 
 .brand-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
 
-.brand-top { position: absolute; top: 20px; left: 24px; z-index: 2; }
-.brand-logo { font-weight: 700; letter-spacing: 0.5px; }
+.branding .brand-top { position: absolute; top: 20px; left: 24px; z-index: 2; }
+.branding .brand-logo { font-weight: 700; letter-spacing: 0.5px; }
+
+// Brand row used on simple auth pages (forgot/reset)
+.forgot-page .brand-top,
+.reset-page  .brand-top { margin-bottom: $spacing-md; position: static; }
+.forgot-page .brand-logo,
+.reset-page  .brand-logo { font-weight: 700; color: $color-primary; }
 
 .brand-content { position: relative; z-index: 2; max-width: 520px; }
 .brand-tagline { font-family: $font-family-primary; font-weight: 800; font-size: 36px; line-height: 1.15; }
@@ -137,15 +159,13 @@
 }
 
 
-.form-subtitle {
-  color: $color-text;
-}
-
 .form-control:focus {
   box-shadow: none !important;
 }
 
-.auth-form {
+.auth-form,
+.forgot-form,
+.reset-form {
   display: grid;
   gap: $spacing-md;
 }
@@ -208,6 +228,9 @@
   color: $color-error;
 }
 
+.form-actions { display: grid; gap: $spacing-sm; }
+.meta-text { margin-top: $spacing-sm; color: $color-text; }
+
 .meta-row {
   display: flex;
   justify-content: flex-end;
@@ -232,6 +255,8 @@
   &:active { transform: translateY(0); filter: brightness(0.98); }
   &:disabled { filter: grayscale(0.2) brightness(0.96); opacity: 0.8; cursor: not-allowed; }
 }
+
+.secondary-btn { display: inline-block; text-align: center; padding: 0.8rem 1.1rem; border-radius: $border-radius-sm; border: 1px solid rgba(14,30,59,0.12); color: $color-text-dark; background: #fff; }
 
 .google-btn {
   width: 100%;
@@ -266,6 +291,12 @@
   font-weight: $font-weight-semibold;
   padding: 0 0 0 $spacing-xs;
 }
+
+// Success state blocks (forgot/reset)
+.success-state { text-align: center; }
+.success-icon { color: $color-success; margin: 0 auto $spacing-sm; }
+.success-title { font-family: $font-family-primary; font-weight: 600; margin-bottom: $spacing-xs; }
+.success-text { color: $color-text; }
 
 .grid-2 {
   display: grid;
@@ -306,6 +337,9 @@
 @media (max-width: 560px) {
   .auth-page { padding: 0; }
   .form-section { padding: 24px 16px; }
+  .forgot-page { padding: $spacing-lg $spacing-md; }
+  .reset-page { padding: $spacing-lg $spacing-md; }
+  .form-card { padding: 24px; }
 
   .grid-2 {
     grid-template-columns: 1fr;

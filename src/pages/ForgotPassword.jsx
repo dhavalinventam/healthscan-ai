@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, Row, Col } from 'react-bootstrap';
-import './ForgotPassword.scss';
+import './Auth.scss';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
