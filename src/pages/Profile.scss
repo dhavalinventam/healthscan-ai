@@ -10,26 +10,37 @@
 .page-header { margin-bottom: $spacing-lg; }
 .page-subtitle { color: $color-text; font-size: 16px; font-weight: 500; }
 
-.account-nav {
-  display: flex;
-  gap: $spacing-sm;
-  padding: 6px;
-  background: rgba(14, 30, 59, 0.04);
-  border: 1px solid rgba(14, 30, 59, 0.08);
-  border-radius: 16px;
+// Ensure all input field labels are 14px
+.profile-page .form-label { font-size: 14px; font-weight: 500; }
+
+// Profile hero summary and quick actions
+.profile-hero {
+  background: $gradient-card;
+  border: 1px solid rgba(0,86,210,0.08);
+  border-radius: 12px;
   box-shadow: $shadow-sm;
-  margin-bottom: $spacing-lg;
+  padding: 16px 18px;
+  margin-bottom: 18px;
 
-  .nav-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 16px;
-    border-radius: 12px;
-    color: $color-text;
-    text-decoration: none;
-
-    &:hover { background: #fff; box-shadow: $shadow-sm; color: $color-text-dark; }
-  }
+  .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .hero-left { display: inline-flex; align-items: center; gap: 12px; }
+  .hero-right { display: inline-flex; align-items: center; gap: 10px; }
+  .hero-title { font-weight: 700; color: $color-text-dark; }
+  .hero-subtitle { font-size: 14px; color: $color-text; }
+  .plan-badge { background: rgba(0,86,210,0.1); color: $color-primary; padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; }
+  .renewal-text { font-size: 12px; color: $color-text; }
 }
+
+.quick-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+.action-card { display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: center; background: #fff; border: 1px solid rgba(0,86,210,0.08); border-radius: 12px; padding: 12px; text-decoration: none; color: inherit; box-shadow: $shadow-sm; transition: transform $transition-normal ease, box-shadow $transition-normal ease; }
+.action-card:hover { transform: translateY(-2px); box-shadow: $shadow-md; }
+.icon-circle { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,86,210,0.08); color: $color-primary; display: inline-flex; align-items: center; justify-content: center; }
+.action-card .title { font-weight: 600; color: $color-text-dark; }
+.action-card .subtitle { font-size: 12px; color: $color-text; }
+
+.sections-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; }
+
+ 
 
 .card-section {
   background: #fff;
@@ -42,7 +53,6 @@
 
 .card-header { padding: 14px 18px; border-bottom: 1px solid #EAEAEA; background: #FAFCFF; }
 .card-title { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 18px; color: $color-text-dark; }
-.card-title .key { color: #133E87; }
 .card-body { padding: 24px; }
 
 .profile-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
@@ -55,33 +65,12 @@
 .profile-identity .name { font-weight: 600; color: $color-text-dark; }
 .profile-identity .email { color: $color-text; font-size: 14px; }
 
-.form-grid {
-  display: grid; gap: 18px;
-  grid-template-columns: 1fr 1fr;
 
-  .full { grid-column: 1 / -1; }
-}
-
-.input-group { display: grid; gap: 4px; }
-.input-group label { font-size: 14px; font-weight: 500; color: #555; }
-.input-group input,
-.input-group select,
-.input-group textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid #E0E0E0;
-  border-radius: 8px;
-  background: #fff;
-  font-family: $font-family-secondary;
-  transition: box-shadow $transition-normal ease, border-color $transition-normal ease;
-
-  &:focus { outline: none; border-color: #133E87; box-shadow: 0 0 0 3px rgba(19,62,135,0.12); }
-}
-
-.input-field { display: flex; align-items: center; border: 1px solid #E0E0E0; border-radius: 8px; min-height: 44px; }
-.input-field input { flex: 1; border: none; background: transparent; padding: 12px 14px; }
-.input-field .toggle-visibility { background: transparent; border: none; color: $color-primary; font-weight: 600; font-size: 14px; padding: 0 12px 0 0; }
-.input-field.has-error { border-color: rgba($color-error, 0.6); box-shadow: 0 0 0 3px rgba($color-error, 0.08); }
+.toggle-visibility { background: transparent; border: none; color: $color-primary; font-weight: 600; font-size: 14px; padding: 0 12px 0 0; }
+.field-with-toggle { position: relative; }
+.field-with-toggle input,
+.field-with-toggle .form-control { padding-right: 72px; }
+.field-with-toggle .toggle-visibility { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); }
 
 .error-text { font-size: 12px; color: #E53935; }
 
@@ -90,9 +79,6 @@
 .secondary-btn { padding: 10px 16px; background: #fff; border: 1px solid #E0E0E0; color: $color-text-dark; border-radius: 8px; }
 .secondary-btn.with-icon { display: inline-flex; align-items: center; gap: 8px; }
 .secondary-btn.small { padding: 8px 12px; font-size: 14px; }
-.danger-btn { padding: 12px 24px; background: $color-error; color: #fff; border-radius: 8px; }
-
-.split-row { margin-top: 10px; display: grid; gap: 10px; }
 .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .label { font-weight: 600; color: $color-text-dark; }
 .hint { color: $color-text; font-size: 14px; }
@@ -103,29 +89,33 @@
 .switch.on { background: rgba(19,62,135,0.2); border-color: #133E87; }
 .switch.on .thumb { left: 21px; }
 
-.login-history { margin-top: $spacing-md; }
-.history-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.history-item { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px dashed rgba(14,30,59,0.08); }
-.history-item .muted { color: $color-text; font-size: 14px; }
+ 
 
 .plan-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: $spacing-md; }
 .plan-name { font-weight: 600; color: $color-text-dark; }
 .plan-meta { color: $color-text; font-size: 14px; }
 
+.plan-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border: 1px solid rgba(0,86,210,0.08); background: $gradient-card; border-radius: 12px; margin-bottom: 16px; }
+
 .payment-methods { display: inline-flex; gap: 8px; }
-.payment-methods .method { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #E0E0E0; border-radius: 8px; cursor: pointer; }
-.payment-methods .method.active { border-color: #133E87; box-shadow: 0 0 0 3px rgba(19,62,135,0.12); }
-.payment-methods input { accent-color: #133E87; }
+.pm-chip { padding: 8px 14px; border: 1px solid #E0E0E0; background: #fff; color: $color-text-dark; border-radius: 999px; font-weight: 600; font-size: 13px; transition: all $transition-normal ease; }
+.pm-chip.active { border-color: #133E87; background: rgba(19,62,135,0.06); color: #133E87; box-shadow: 0 0 0 3px rgba(19,62,135,0.12); }
+.pm-chip:hover { transform: translateY(-1px); box-shadow: $shadow-sm; }
 
 .billing-history { margin-top: $spacing-md; }
-.history-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border: 1px solid #EEE; border-radius: 8px; overflow: hidden; }
-.history-item { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 8px 12px; border-bottom: 1px dashed rgba(14,30,59,0.08); }
-.history-item:nth-child(odd) { background: #FAFAFA; }
+.table-wrap { overflow-x: auto; border: 1px solid #EEE; border-radius: 10px; }
+.billing-table { width: 100%; border-collapse: collapse; background: #fff; }
+.billing-table thead th { text-align: left; font-weight: 700; font-size: 13px; color: $color-text-dark; padding: 10px 12px; background: #FAFAFA; }
+.billing-table tbody td { padding: 10px 12px; border-top: 1px dashed rgba(14,30,59,0.08); font-size: 14px; color: $color-text; }
+.billing-table tbody tr:nth-child(odd) td { background: #FCFEFF; }
+.link-btn { display: inline-block; padding: 6px 10px; border: 1px solid #E0E0E0; border-radius: 8px; background: #fff; color: $color-text-dark; text-decoration: none; font-weight: 600; font-size: 12px; }
 
 @media (max-width: 960px) {
   .card-body { padding: 16px; }
   .card-header { padding: 12px 16px; }
-  .form-grid { grid-template-columns: 1fr; gap: 14px; }
+  .quick-actions { grid-template-columns: 1fr; }
+  .sections-grid { grid-template-columns: 1fr; }
+  
   .history-item { grid-template-columns: 1fr; }
 }
 
