@@ -158,8 +158,7 @@ const UploadReport = () => {
                 <div className="upload-separator">or</div>
                 <Button
                   variant="fill"
-                  size="large"
-                  className="browse-btn"
+                  className="button browse-btn"
                   onClick={handleBrowseClick}
                 >
                   Browse Files
@@ -188,8 +187,7 @@ const UploadReport = () => {
                  ) : (
                    <Button
                      variant="fill"
-                     size="large"
-                     className="upload-btn"
+                     className="button upload-btn"
                      onClick={handleUpload}
                    >
                      Upload Report

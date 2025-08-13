@@ -249,22 +249,22 @@
   }
 
   &.upload-btn {
-    background: $gradient-primary;
-    border: none;
-    color: white;
-    font-weight: $font-weight-semibold;
-    padding: $spacing-xs $spacing-md;
-    border-radius: $border-radius-lg;
+    // background: $gradient-primary;
+    // border: none;
+    // color: white;
+    // font-weight: $font-weight-semibold;
+    // padding: $spacing-xs $spacing-md;
+    // border-radius: $border-radius-lg;
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
+    // gap: $spacing-xs;
 
     .btn-icon {
       transition: transform $transition-normal ease;
     }
 
     .btn-text {
-      font-weight: $font-weight-semibold;
+      // font-weight: $font-weight-semibold;
     }
 
     // Tablet responsive adjustments

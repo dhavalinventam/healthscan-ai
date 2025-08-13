@@ -323,7 +323,7 @@ const HowItWorks = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="demo-cta">
+          {/* <div className="demo-cta">
             <p className="cta-text">Ready to analyze your own medical reports?</p>
             <button className="cta-button">
               <span className="button-text">Try It Free</span>
@@ -333,7 +333,7 @@ const HowItWorks = () => {
                 </svg>
               </span>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

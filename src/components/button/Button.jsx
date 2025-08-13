@@ -5,7 +5,7 @@ import './Button.scss';
 const Button = ({ 
   children, 
   variant = 'fill', 
-  size = 'medium', 
+  size, // ignored to enforce a single size globally
   disabled = false, 
   loading = false,
   onClick, 
@@ -16,9 +16,6 @@ const Button = ({
   const buttonClasses = [
     'button',
     `button--${variant}`,
-    `button--${size}`,
-    disabled ? 'button--disabled' : '',
-    loading ? 'button--loading' : '',
     className
   ].filter(Boolean).join(' ');
 
@@ -37,8 +34,7 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['fill', 'outline', 'ghost', 'gradient']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  variant: PropTypes.oneOf(['fill', 'outline']),
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
   onClick: PropTypes.func,

@@ -214,13 +214,13 @@ const Auth = () => {
                   </div>
 
                   <div className="form-actions">
-                    <button type="submit" className="primary-btn" aria-label="Login" disabled={!isLoginValid}>
+                    <button type="submit" className="button button--fill with-icon" aria-label="Login" disabled={!isLoginValid}>
                       <span className="btn-icon" aria-hidden>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
                       </span>
                       Login
                     </button>
-                    <button type="button" className="google-btn" aria-label="Sign in with Google">
+                    <button type="button" className="button button--outline with-icon" aria-label="Sign in with Google">
                       <span className="g-icon" aria-hidden>
                         <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                           <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303C33.827 32.332 29.284 36 24 36c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.957 3.043l5.657-5.657C34.676 6.053 29.614 4 24 4 12.954 4 4 12.954 4 24s8.954 20 20 20c10.493 0 19.127-7.879 19.127-20 0-1.341-.138-2.651-.516-3.917z"/>
@@ -339,9 +339,7 @@ const Auth = () => {
                   </div>
 
                   <div className="form-actions">
-                    <button type="submit" className="primary-btn" aria-label="Signup" disabled={!isSignupValid}>
-                      Signup
-                    </button>
+                    <button type="submit" className="button button--fill" aria-label="Signup" disabled={!isSignupValid}>Signup</button>
                   </div>
                 </form>
 

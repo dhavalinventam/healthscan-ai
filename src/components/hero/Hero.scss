@@ -207,7 +207,7 @@
   }
 }
 
-.hero-cta {
+  .hero-cta {
   display: flex;
   gap: $spacing-sm;
   margin-bottom: $spacing-xl;
@@ -223,107 +223,7 @@
     align-items: center;
   }
 
-  .hero-btn {
-    display: flex;
-    align-items: center;
-    gap: $spacing-xs;
-    position: relative;
-    overflow: hidden;
-
-    &.primary-btn {
-      // Enhanced primary button styling
-      background: $gradient-primary;
-      color: white;
-      box-shadow: $shadow-glow;
-      border: none;
-      border-radius: $border-radius-xl;
-      font-weight: $font-weight-semibold;
-      transition: all $transition-normal ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: $shadow-glow-hover;
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s ease;
-      }
-
-      &:hover::before {
-        left: 100%;
-      }
-    }
-
-    &.secondary-btn {
-      // Enhanced secondary button styling
-      background: transparent;
-      color: $color-primary;
-      border: 2px solid $color-primary;
-      border-radius: $border-radius-xl;
-      font-weight: $font-weight-semibold;
-      backdrop-filter: blur(10px);
-      transition: all $transition-normal ease;
-
-      &:hover {
-        background: $color-primary;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: $shadow-md;
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: $gradient-primary;
-        transition: width $transition-normal ease;
-        z-index: -1;
-      }
-
-      &:hover::before {
-        width: 100%;
-      }
-    }
-
-    .btn-text {
-      font-weight: $font-weight-semibold;
-      transition: transform $transition-normal ease;
-    }
-
-    .btn-icon {
-      display: flex;
-      align-items: center;
-      transition: transform $transition-normal ease;
-    }
-
-    &:hover .btn-icon {
-      transform: translateX(2px);
-    }
-
-    @media (max-width: 576px) {
-      width: 100%;
-      max-width: 260px;
-      justify-content: center;
-    }
-  }
+    .button { /* rely on global button styles */ }
 }
 
 .hero-stats {

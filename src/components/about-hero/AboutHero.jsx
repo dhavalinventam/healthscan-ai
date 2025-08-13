@@ -47,16 +47,13 @@ const AboutHero = () => {
               <div className="about-hero-cta">
                 <Button
                   variant="fill"
-                  size="large"
-                  className="about-hero-btn about-hero-btn--primary"
+                  className="button about-hero-btn about-hero-btn--primary"
                   aria-label="Our Mission"
                   onClick={handleScrollTo('#mission')}
                 >
                   <span className="btn-text">Our Mission</span>
                 </Button>
-                <a href="#team" className="about-hero-link" aria-label="Meet the Team">
-                  Meet the Team
-                </a>
+               
               </div>
             </div>
           </div>

@@ -37,7 +37,7 @@
   max-width: none;
   gap: 0;
   background: $color-bg-light;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .branding {
@@ -241,39 +241,10 @@
   text-decoration: none;
 }
 
-.primary-btn {
-  width: 100%;
-  padding: 12px 24px;
-  background: #133E87;
-  color: #fff;
-  font-weight: $font-weight-semibold;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(19, 62, 135, 0.15);
-  transition: transform $transition-fast ease, box-shadow $transition-normal ease, filter $transition-normal ease, background $transition-normal ease;
-
-  &:hover { background: #0F2F6B; box-shadow: 0 6px 16px rgba(19, 62, 135, 0.25); transform: translateY(-1px); }
-  &:active { transform: translateY(0); filter: brightness(0.98); }
-  &:disabled { filter: grayscale(0.2) brightness(0.96); opacity: 0.8; cursor: not-allowed; }
-}
-
-.secondary-btn { display: inline-block; text-align: center; padding: 0.8rem 1.1rem; border-radius: $border-radius-sm; border: 1px solid rgba(14,30,59,0.12); color: $color-text-dark; background: #fff; }
-
-.google-btn {
-  width: 100%;
-  margin-top: 10px;
-  padding: 11px 24px;
-  border-radius: 8px;
-  border: 1px solid #E0E0E0;
-  background: #fff;
-  color: $color-text-dark;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background $transition-normal ease, box-shadow $transition-normal ease, transform $transition-fast ease, border-color $transition-normal ease;
-
-  &:hover { background: #f8fbff; border-color: #D5D5D5; box-shadow: 0 6px 16px rgba(0,0,0,0.08); transform: translateY(-1px); }
-}
+// Deprecated legacy classes kept for backward compatibility. Map to unified button classes.
+.primary-btn { @extend .button !optional; @extend .button--fill !optional; }
+.secondary-btn { @extend .button !optional; @extend .button--outline !optional; }
+.google-btn { @extend .button !optional; @extend .button--outline !optional; }
 
 .toggle-visibility { background: transparent; border: none; color: $color-primary; font-weight: 600; font-size: 14px; padding: 0 12px 0 0; }
 

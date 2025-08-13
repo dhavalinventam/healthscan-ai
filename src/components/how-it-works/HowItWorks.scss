@@ -893,7 +893,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-xl;
   max-width: 600px;
-  margin: 0 auto $spacing-3xl;
+  margin: 0 auto 0;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

@@ -75,10 +75,11 @@
 .error-text { font-size: 12px; color: #E53935; }
 
 // .form-actions { display: flex; gap: 12px; margin-top: 4px; }
-.primary-btn { padding: 12px 24px; background: #133E87; color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(19,62,135,0.15); min-width: 180px; }
-.secondary-btn { padding: 10px 16px; background: #fff; border: 1px solid #E0E0E0; color: $color-text-dark; border-radius: 8px; }
-.secondary-btn.with-icon { display: inline-flex; align-items: center; gap: 8px; }
-.secondary-btn.small { padding: 8px 12px; font-size: 14px; }
+// Deprecated legacy classes kept for backward compatibility. Map to unified button classes.
+.primary-btn { @extend .button !optional; @extend .button--fill !optional; }
+.secondary-btn { @extend .button !optional; @extend .button--outline !optional; }
+.secondary-btn.with-icon { @extend .button !optional; @extend .button--outline !optional; @extend .with-icon !optional; }
+.secondary-btn.small { @extend .button !optional; }
 .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .label { font-weight: 600; color: $color-text-dark; }
 .hint { color: $color-text; font-size: 14px; }

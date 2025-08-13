@@ -122,10 +122,9 @@ const Header = () => {
             <li className="nav-item ms-md-3 mt-2 mt-md-0">
               <Link to="/upload">
                 <Button 
-                  variant="fill" 
-                  size="small" 
+                  variant="fill"
                   aria-label="Upload Report"
-                  className="upload-btn"
+                  className="button with-icon upload-btn"
                 >
                   <span className="btn-icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -145,9 +144,8 @@ const Header = () => {
             <Link to="/login">
               <Button
                 variant="outline"
-                size="small"
                 aria-label="Login"
-                className="login-btn"
+                className="button login-btn"
               >
                 Login
               </Button>

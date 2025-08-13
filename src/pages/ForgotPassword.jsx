@@ -84,7 +84,7 @@ const ForgotPassword = () => {
                   <div className="form-actions">
                     <button
                       type="submit"
-                      className="primary-btn"
+                      className="button button--fill with-icon"
                       aria-label="Send reset link"
                       disabled={!isValid || isSubmitting}
                     >
@@ -109,7 +109,7 @@ const ForgotPassword = () => {
               <h2 className="success-title">Check your email</h2>
               <p className="success-text">If an account exists for {email}, you’ll receive a link to reset your password.</p>
               <div className="form-actions">
-                <Link to="/reset-password" className="secondary-btn" aria-label="I have a code">I have a reset link</Link>
+                <Link to="/reset-password" className="button button--outline" aria-label="I have a code">I have a reset link</Link>
               </div>
               <p className="meta-text">
                 Didn’t get the email? Check spam or{' '}

@@ -85,7 +85,7 @@ const Dashboard = () => {
           <div className="section-header">
             <h2 className="section-title">Report <span className="gradient-text">History</span></h2>
             <div className="section-actions">
-              <button className="btn-filter" type="button">
+              <button className="button button--outline with-icon" type="button">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                       >
                         View
                       </a>
-                      <button className="link-btn" type="button">Download</button>
+                      <button className="button button--outline" type="button">Download</button>
                     </td>
                   </tr>
                 ))}

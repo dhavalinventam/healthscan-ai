@@ -63,10 +63,10 @@
 
     .cta-button {
       // Enhance prominence while respecting global button styles
-      min-width: 220px;
-      box-shadow: $shadow-glow;
-      padding: 0 $spacing-2xl;
-      gap: $spacing-sm;
+      // min-width: 220px;
+      // box-shadow: $shadow-glow;
+      // padding: 0 $spacing-2xl;
+      // gap: $spacing-sm;
       
       .button-text { font-weight: $font-weight-semibold; }
       .button-icon { display: inline-flex; align-items: center; }

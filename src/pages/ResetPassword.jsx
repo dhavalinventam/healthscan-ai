@@ -109,7 +109,7 @@ const ResetPassword = () => {
 
                   <Col xs={12}>
                     <div className="form-actions">
-                      <button type="submit" className="primary-btn" aria-label="Reset password" disabled={!isValid || isSubmitting}>
+                      <button type="submit" className="button button--fill with-icon" aria-label="Reset password" disabled={!isValid || isSubmitting}>
                         {isSubmitting ? 'Saving…' : 'Save New Password'}
                       </button>
                     </div>
@@ -125,7 +125,7 @@ const ResetPassword = () => {
               <h2 className="success-title">Password updated</h2>
               <p className="success-text">Your password has been reset successfully.</p>
               <div className="form-actions">
-                <button type="button" className="primary-btn" onClick={() => navigate('/login')}>Go to Login</button>
+                <button type="button" className="button button--fill" onClick={() => navigate('/login')}>Go to Login</button>
               </div>
             </div>
           )}

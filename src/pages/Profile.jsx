@@ -151,7 +151,7 @@ const Profile = () => {
               <div className="profile-identity">
                 <div className="name">{fullName || user?.name || "User"}</div>
                 <div className="email">{email}</div>
-                <button type="button" className="secondary-btn small with-icon">
+                <button type="button" className="button button--outline with-icon">
                   <IconCamera /> <span>Change Photo</span>
                 </button>
               </div>
@@ -222,7 +222,7 @@ const Profile = () => {
                 </Col>
                 <Col xs={12}>
                   <div className="form-actions">
-                    <button type="submit" className="primary-btn">
+                    <button type="submit" className="button button--fill">
                       Save Changes
                     </button>
                   </div>
@@ -312,7 +312,7 @@ const Profile = () => {
                 </Col>
                 <Col xs={12}>
                   <div className="form-actions">
-                    <button type="submit" className="primary-btn">
+                    <button type="submit" className="button button--fill">
                       Change Password
                     </button>
                   </div>
@@ -351,7 +351,7 @@ const Profile = () => {
                   {plan.price} • Renews on {plan.renewal}
                 </div>
               </div>
-              <button type="button" className="secondary-btn">
+              <button type="button" className="button button--outline">
                 Upgrade / Downgrade Plan
               </button>
             </div>
@@ -446,7 +446,7 @@ const Profile = () => {
 
                 <Col xs={12}>
                   <div className="form-actions">
-                    <button type="submit" className="primary-btn">
+                    <button type="submit" className="button button--fill">
                       Save Billing
                     </button>
                   </div>

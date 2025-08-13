@@ -22,8 +22,7 @@ const Cta = () => {
           <div className="cta-action">
             <Button
               variant="fill"
-              size="large"
-              className="cta-button"
+              className="button with-icon cta-button"
               onClick={handleUploadClick}
               aria-label="Upload medical report"
             >

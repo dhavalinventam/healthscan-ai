@@ -53,24 +53,9 @@ const Hero = () => {
               </p>
               
               <div className="hero-cta">
-                {/* <Button
-                  variant="fill"
-                  size="large"
-                  className="hero-btn primary-btn"
-                  aria-label="Try HealthScan AI for free"
-                >
-                  <span className="btn-text">Try It Free</span>
-                  <span className="btn-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </Button> */}
-                
                 <Button
                   variant="outline"
-                  size="large"
-                  className="hero-btn secondary-btn"
+                  className="button with-icon"
                   aria-label="Watch demo video"
                 >
                   <span className="btn-icon">
